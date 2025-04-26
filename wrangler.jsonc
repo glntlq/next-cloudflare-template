@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "next-cloudflare-template",
+  "compatibility_date": "2025-04-22",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "demo",
+      "database_id": "faac1a9d-d012-4e93-b30f-ba990b24928e",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "f6b51dc9a6d94577be2bb6e7ae08a47b"
+    }
+  ],
+  "pages_build_output_dir": ".vercel/output/static"
+}
