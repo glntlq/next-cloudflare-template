@@ -16,7 +16,8 @@
     "db:migrate-local": "tsx scripts/migrate.ts local",
     "db:migrate-remote": "tsx scripts/migrate.ts remote",
     "db:seed": "wrangler dev scripts/seed.ts",
-    "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio"
+    "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
+    "db:studio:remote": "drizzle-kit studio"
   },
   "dependencies": {
     "@auth/d1-adapter": "^1.9.0",
