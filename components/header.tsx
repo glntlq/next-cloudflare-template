@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
+import LoginModal from '@/components/login/login-modal'
+import Logo from '@/components/logo'
 import { cn } from '@/lib/utils'
 
 import DarkToggle from './dark-toggle'
 import { Button } from './ui/button'
-import Logo from '@/components/logo'
-import LoginModal from '@/components/login/login-modal'
 
 export default async function Header({ className }: { className?: string }) {
   return (

@@ -1,3 +1,5 @@
+import { SessionProvider } from 'next-auth/react'
+
 import Container from '@/components/container'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
@@ -7,7 +9,6 @@ import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
 
 import './globals.css'
-import { SessionProvider } from 'next-auth/react'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bytespark.me'),

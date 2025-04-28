@@ -9,6 +9,7 @@ export const TextButton = () => {
       onClick={async () => {
         const data = await getTableSchemas()
         const users = await getUsersTest()
+        // eslint-disable-next-line no-console
         console.log('Data:', users, data)
       }}
     >

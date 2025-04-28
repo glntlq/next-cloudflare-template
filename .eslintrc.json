@@ -1,6 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
   "plugins": ["import", "unused-imports"],
+  "ignorePatterns": ["scripts/**/*"],
   "rules": {
     "react/no-unescaped-entities": "off",
     "no-console": ["error", { "allow": ["error", "warn"] }],

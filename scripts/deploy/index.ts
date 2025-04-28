@@ -1,8 +1,10 @@
-import { NotFoundError } from 'cloudflare'
 import 'dotenv/config'
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+
+import { NotFoundError } from 'cloudflare'
+
 import { createDatabase, createKVNamespace, createPages, getDatabase, getKVNamespaceList, getPages } from './cloudflare'
 
 const PROJECT_NAME = process.env.PROJECT_NAME || 'next-template'
@@ -196,7 +198,7 @@ const pushPagesSecret = () => {
   console.log('🔐 Pushing environment secrets to Pages...')
 
   // 定义运行时所需的环境变量列表
-  const runtimeEnvVars = ['NEXT_PUBLIC_BASE_URL', 'AUTH_SECRET']
+  const runtimeEnvVars = ['AUTH_GOOGLE_ID', 'AUTH_SECRET', 'AUTH_GOOGLE_SECRET']
 
   try {
     // 确保.env文件存在
@@ -305,7 +307,7 @@ const main = async () => {
     setupWranglerConfigs()
     await checkAndCreateDatabase()
     migrateDatabase()
-    await checkAndCreateKVNamespace()
+    // await checkAndCreateKVNamespace()
     await checkAndCreatePages()
     pushPagesSecret()
     deployPages()

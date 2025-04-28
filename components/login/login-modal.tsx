@@ -1,6 +1,11 @@
 'use client'
 
+import { LogIn } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 import { useState } from 'react'
+
+import LoginForm from '@/components/login/login-form'
+import SignOutButton from '@/components/sign-out-button'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -10,10 +15,7 @@ import {
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog'
-import LoginForm from '@/components/login/login-form'
-import { LogIn } from 'lucide-react'
-import { useSession } from 'next-auth/react'
-import SignOutButton from '@/components/sign-out-button'
+
 
 interface LoginModalProps {
   triggerText?: string

@@ -1,10 +1,11 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Github, Mail, Loader2 } from 'lucide-react'
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 interface LoginFormProps {
   onSuccess?: () => void
@@ -25,8 +26,6 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
         ...(provider === 'resend' ? { email } : {}),
         redirect: false
       })
-
-      console.log(result)
 
       if (result?.ok && !result?.error && onSuccess) {
         onSuccess()
