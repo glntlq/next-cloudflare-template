@@ -13,11 +13,5 @@
       "migrations_dir": "migrations"
     }
   ],
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "KV",
-  //     "id": "f6b51dc9a6d94577be2bb6e7ae08a47b"
-  //   }
-  // ],
   "pages_build_output_dir": ".vercel/output/static"
 }
