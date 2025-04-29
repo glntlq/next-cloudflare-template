@@ -42,10 +42,9 @@ jobs:
           PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
           DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
           DATABASE_ID: ${{ secrets.DATABASE_ID }}
-          KV_NAMESPACE_NAME: ${{ secrets.KV_NAMESPACE_NAME }}
-          KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
           AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
-          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
         run: pnpm dlx tsx scripts/deploy/index.ts
 
       # Clean up
