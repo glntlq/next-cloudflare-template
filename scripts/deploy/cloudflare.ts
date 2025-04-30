@@ -26,7 +26,7 @@ export const createPages = async () => {
   const project = await client.pages.projects.create({
     account_id: CF_ACCOUNT_ID,
     name: PROJECT_NAME,
-    production_branch: 'main'
+    production_branch: 'master'
   })
 
   console.log('✅ Project created successfully')
