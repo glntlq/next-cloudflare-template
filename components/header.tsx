@@ -4,7 +4,6 @@ import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
 import { cn } from '@/lib/utils'
 
-import DarkToggle from './dark-toggle'
 import { Button } from './ui/button'
 
 export default async function Header({ className }: { className?: string }) {
@@ -16,7 +15,6 @@ export default async function Header({ className }: { className?: string }) {
         <Button variant="outline" asChild>
           <Link href="/about">About</Link>
         </Button>
-        <DarkToggle />
       </section>
     </header>
   )

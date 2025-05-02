@@ -4,6 +4,8 @@
 /node_modules
 
 
+messages/*.d.json.ts
+
 # testing
 /coverage
 
