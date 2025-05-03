@@ -5,6 +5,8 @@
   },
   "AboutPage": {
     "title": "About this site",
-    "home": "Go to the home page"
+    "home": "Go to the home page",
+    "settings": "Settings",
+    "description": "This is a description of our website"
   }
 }

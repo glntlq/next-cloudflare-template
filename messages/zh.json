@@ -1,10 +1,11 @@
 {
   "HomePage": {
-    "title": "你好世界",
-    "about": "去About页面"
+    "title": "你好，世界！",
+    "about": "前往关于页面"
   },
   "AboutPage": {
-    "title": "关于此网站",
-    "home": "去首页"
+    "title": "关于本站",
+    "home": "前往首页",
+    "description": "这是我们的网站描述"
   }
 }
