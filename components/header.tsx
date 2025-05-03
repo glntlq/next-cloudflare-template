@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-import { LocaleSwitcher } from '@/components/language-switcher'
+import { LocaleSwitcher } from '@/components/locale-switcher'
 import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
 import { Link } from '@/i18n/navigation'
