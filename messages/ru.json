@@ -22,12 +22,12 @@
       "continueWithGoogle": "Продолжить с Google",
       "continueWithGithub": "Продолжить с GitHub",
       "orContinueWith": "Или продолжить с",
-      "emailPlaceholder": "Введите ваш адрес электронной почты",
-      "signInWithEmail": "Войти с помощью электронной почты"
+      "emailPlaceholder": "Введите ваш email",
+      "signInWithEmail": "Войти по email"
     }
   },
   "footer": {
-    "description": "Расширяя возможности общения с помощью ИИ. Опыт будущего общения с LinkAI.",
+    "description": "Расширяя возможности общения с ИИ. Опыт будущего коммуникации с LinkAI.",
     "contact": {
       "title": "Контакты",
       "intro": "По вопросам, пожалуйста, свяжитесь с нами:",

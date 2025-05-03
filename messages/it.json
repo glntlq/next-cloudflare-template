@@ -4,18 +4,18 @@
     "about": "Vai alla pagina Chi siamo"
   },
   "AboutPage": {
-    "title": "A proposito di questo sito",
+    "title": "Informazioni su questo sito",
     "home": "Vai alla pagina Home",
     "description": "Questa è una descrizione del nostro sito web",
     "settings": "Impostazioni"
   },
   "siteInfo": {
-    "brandName": "Prova modello"
+    "brandName": "Prossimo Modello"
   },
   "login": {
     "modal": {
-      "title": "Benvenuto su Prova modello",
-      "description": "Accedi per continuare il tuo percorso",
+      "title": "Benvenuto su Prossimo Modello",
+      "description": "Accedi per continuare il tuo viaggio",
       "triggerText": "Accedi"
     },
     "form": {
@@ -27,9 +27,9 @@
     }
   },
   "footer": {
-    "description": "Empowering conversations with AI. Experience the future of communication with LinkAI.",
+    "description": "Empowering conversazioni con AI. Sperimenta il futuro della comunicazione con LinkAI.",
     "contact": {
-      "title": "Contatti",
+      "title": "Contatto",
       "intro": "Per richieste, si prega di contattare:",
       "email": "contact@yourdomain.com",
       "responseTime": "Tempo di risposta: entro 24-48 ore"
@@ -41,11 +41,11 @@
       "refundPolicy": "Politica di reso",
       "subscriptionTerms": "Termini di abbonamento"
     },
-    "copyright": "2024 Cozyai LLC. Tutti i diritti riservati."
+    "copyright": " 2024 Cozyai LLC. Tutti i diritti riservati."
   },
   "common": {
     "previous": "Precedente",
-    "next": "Successivo",
+    "next": "Prossimo",
     "morePage": "Altre pagine",
     "close": "Chiudi"
   },

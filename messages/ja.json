@@ -27,7 +27,7 @@
     }
   },
   "footer": {
-    "description": "AIで会話を強化。LinkAIでコミュニケーションの未来を体験してください。",
+    "description": "AIで会話を強化します。 LinkAIでコミュニケーションの未来を体験してください。",
     "contact": {
       "title": "お問い合わせ",
       "intro": "お問い合わせは以下までお願いします。",
@@ -39,7 +39,7 @@
       "home": "ホーム",
       "aboutUs": "会社概要",
       "refundPolicy": "返金ポリシー",
-      "subscriptionTerms": "利用規約"
+      "subscriptionTerms": "サブスクリプション規約"
     },
     "copyright": " 2024 Cozyai LLC. All rights reserved."
   },

@@ -15,22 +15,22 @@
   "login": {
     "modal": {
       "title": "مرحبًا بك في قالب التالي",
-      "description": "سجّل الدخول لمتابعة رحلتك",
+      "description": "تسجيل الدخول لمتابعة رحلتك",
       "triggerText": "تسجيل الدخول"
     },
     "form": {
-      "continueWithGoogle": "استمر مع Google",
-      "continueWithGithub": "استمر مع GitHub",
-      "orContinueWith": "أو استمر مع",
+      "continueWithGoogle": "متابعة مع Google",
+      "continueWithGithub": "متابعة مع GitHub",
+      "orContinueWith": "أو متابعة مع",
       "emailPlaceholder": "أدخل بريدك الإلكتروني",
-      "signInWithEmail": "سجّل الدخول عبر البريد الإلكتروني"
+      "signInWithEmail": "تسجيل الدخول عبر البريد الإلكتروني"
     }
   },
   "footer": {
-    "description": "تمكين المحادثات بالذكاء الاصطناعي. اختبر مستقبل الاتصالات مع LinkAI.",
+    "description": "تمكين المحادثات بالذكاء الاصطناعي. تجربة مستقبل الاتصال مع LinkAI.",
     "contact": {
       "title": "اتصل بنا",
-      "intro": "للاستفسارات، يرجى الاتصال:",
+      "intro": "للاستفسارات، يرجى الاتصال بنا:",
       "email": "contact@yourdomain.com",
       "responseTime": "وقت الرد: خلال 24-48 ساعة"
     },

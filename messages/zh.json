@@ -19,18 +19,18 @@
       "triggerText": "登录"
     },
     "form": {
-      "continueWithGoogle": "使用 Google 继续",
-      "continueWithGithub": "使用 GitHub 继续",
+      "continueWithGoogle": "继续使用 Google",
+      "continueWithGithub": "继续使用 GitHub",
       "orContinueWith": "或继续使用",
       "emailPlaceholder": "输入您的电子邮件",
       "signInWithEmail": "使用电子邮件登录"
     }
   },
   "footer": {
-    "description": "与人工智能赋能对话。体验 LinkAI 带来的全新沟通未来。",
+    "description": "用 AI 赋予对话力量。体验与 LinkAI 沟通的未来。",
     "contact": {
       "title": "联系我们",
-      "intro": "如有疑问，请联系：",
+      "intro": "如有查询，请联系：",
       "email": "contact@yourdomain.com",
       "responseTime": "响应时间：24-48 小时内"
     },
