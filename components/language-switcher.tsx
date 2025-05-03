@@ -1,57 +1,71 @@
 'use client'
 
 import { Check, Globe } from 'lucide-react'
-import { useLocale } from 'next-intl'
-import { useState } from 'react'
+import { useParams } from 'next/navigation'
+import { Locale, useLocale } from 'next-intl'
+import { useTransition } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
+import { cn } from '@/lib/utils'
 
-export function LanguageSwitcher() {
-  const pathname = usePathname()
+type Props = {
+  defaultValue: string
+}
+
+export function LocaleSwitcherSelect({ defaultValue }: Props) {
   const router = useRouter()
-  const currentLocale = useLocale()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isPending, startTransition] = useTransition()
+  const pathname = usePathname()
+  const params = useParams()
 
-  // Function to switch the language
-  const switchLanguage = (locale: string) => {
-    // Get the path without the locale prefix
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '')
-
-    // Construct the new path with the selected locale
-    const newPath = `/${locale}${pathWithoutLocale}`
-
-    // Navigate to the new path
-    router.push(newPath)
-    router.refresh()
-    setIsOpen(false)
+  function onLocaleSelect(locale: Locale) {
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        { pathname, params },
+        { locale }
+      )
+    })
   }
 
-  // Get current locale display name
-  const currentLocaleDisplay = locales.find((l) => l.code === currentLocale)?.name || currentLocale
-
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="flex items-center gap-2">
-          <Globe className="h-4 w-4" />
-          <span className="hidden sm:inline">{currentLocaleDisplay}</span>
+        <Button
+          variant="ghost"
+          size="sm"
+          className={cn('flex h-9 items-center gap-1 px-2', isPending && 'pointer-events-none opacity-50')}
+          disabled={isPending}
+        >
+          <Globe className="size-4" />
+          <span className="text-sm font-medium">{defaultValue}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-40">
+      <DropdownMenuContent align="end">
         {locales.map((locale) => (
           <DropdownMenuItem
             key={locale.code}
-            onClick={() => switchLanguage(locale.code)}
             className="flex items-center justify-between"
+            onClick={() => onLocaleSelect(locale.code)}
           >
             <span>{locale.name}</span>
-            {locale.code === currentLocale && <Check className="h-4 w-4" />}
+            {defaultValue === locale.name && <Check className="ml-2 size-4" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   )
+}
+
+export function LocaleSwitcher() {
+  const locale = useLocale()
+
+  const name = locales.find((i) => i.code === locale)?.name ?? 'Unknown'
+
+  return <LocaleSwitcherSelect defaultValue={name} />
 }

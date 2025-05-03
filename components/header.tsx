@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-import { LanguageSwitcher } from '@/components/language-switcher'
+import { LocaleSwitcher } from '@/components/language-switcher'
 import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
 import { Link } from '@/i18n/navigation'
@@ -31,7 +31,7 @@ export default async function Header({ className }: { className?: string }) {
         </div>
         <div className="flex items-center gap-2">
           <LoginModal />
-          <LanguageSwitcher />
+          <LocaleSwitcher />
         </div>
       </div>
     </header>
