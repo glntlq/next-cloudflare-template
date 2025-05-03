@@ -1,11 +1,56 @@
 {
   "HomePage": {
     "title": "こんにちは",
-    "about": "詳細ページへ移動する"
+    "about": "会社概要ページへ"
   },
   "AboutPage": {
     "title": "このサイトについて",
-    "home": "ホームページへ移動する",
-    "description": "当サイトについて"
+    "home": "ホームページへ",
+    "description": "当ウェブサイトの説明",
+    "settings": "設定"
+  },
+  "siteInfo": {
+    "brandName": "ネクストテンプレート"
+  },
+  "login": {
+    "modal": {
+      "title": "Next Templateへようこそ",
+      "description": "続行するにはログインしてください",
+      "triggerText": "ログイン"
+    },
+    "form": {
+      "continueWithGoogle": "Googleで続行する",
+      "continueWithGithub": "GitHubで続行する",
+      "orContinueWith": "または、以下で続行してください",
+      "emailPlaceholder": "メールアドレスを入力してください",
+      "signInWithEmail": "メールアドレスでログインする"
+    }
+  },
+  "footer": {
+    "description": "AIで会話を強化。LinkAIでコミュニケーションの未来を体験してください。",
+    "contact": {
+      "title": "お問い合わせ",
+      "intro": "お問い合わせは以下までお願いします。",
+      "email": "contact@yourdomain.com",
+      "responseTime": "返信時間：24-48時間以内"
+    },
+    "quickLinks": {
+      "title": "クイックリンク",
+      "home": "ホーム",
+      "aboutUs": "会社概要",
+      "refundPolicy": "返金ポリシー",
+      "subscriptionTerms": "利用規約"
+    },
+    "copyright": " 2024 Cozyai LLC. All rights reserved."
+  },
+  "common": {
+    "previous": "前へ",
+    "next": "次へ",
+    "morePage": "もっと見る",
+    "close": "閉じる"
+  },
+  "headers": {
+    "home": "ホーム",
+    "about": "会社概要"
   }
 }

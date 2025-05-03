@@ -1,11 +1,56 @@
 {
   "HomePage": {
     "title": "Здравствуйте",
-    "about": "Перейти на страницу о сайте"
+    "about": "Перейти на страницу о нас"
   },
   "AboutPage": {
     "title": "О этом сайте",
     "home": "Перейти на главную страницу",
-    "description": "Это описание нашего веб-сайта"
+    "description": "Это описание нашего веб-сайта",
+    "settings": "Настройки"
+  },
+  "siteInfo": {
+    "brandName": "Следующий шаблон"
+  },
+  "login": {
+    "modal": {
+      "title": "Добро пожаловать в Следующий шаблон",
+      "description": "Войдите, чтобы продолжить",
+      "triggerText": "Войти"
+    },
+    "form": {
+      "continueWithGoogle": "Продолжить с Google",
+      "continueWithGithub": "Продолжить с GitHub",
+      "orContinueWith": "Или продолжить с",
+      "emailPlaceholder": "Введите ваш адрес электронной почты",
+      "signInWithEmail": "Войти с помощью электронной почты"
+    }
+  },
+  "footer": {
+    "description": "Расширяя возможности общения с помощью ИИ. Опыт будущего общения с LinkAI.",
+    "contact": {
+      "title": "Контакты",
+      "intro": "По вопросам, пожалуйста, свяжитесь с нами:",
+      "email": "contact@yourdomain.com",
+      "responseTime": "Время ответа: В течение 24-48 часов"
+    },
+    "quickLinks": {
+      "title": "Быстрые ссылки",
+      "home": "Главная",
+      "aboutUs": "О нас",
+      "refundPolicy": "Политика возврата",
+      "subscriptionTerms": "Условия подписки"
+    },
+    "copyright": " 2024 Cozyai LLC. Все права защищены."
+  },
+  "common": {
+    "previous": "Предыдущий",
+    "next": "Следующий",
+    "morePage": "Больше страниц",
+    "close": "Закрыть"
+  },
+  "headers": {
+    "home": "Главная",
+    "about": "О нас"
   }
 }

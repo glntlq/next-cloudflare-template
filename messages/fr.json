@@ -1,11 +1,56 @@
 {
   "HomePage": {
     "title": "Bonjour",
-    "about": "Aller à la page à propos"
+    "about": "Aller à la page À propos"
   },
   "AboutPage": {
     "title": "À propos de ce site",
     "home": "Aller à la page d'accueil",
-    "description": "Ceci est une description de notre site Web"
+    "description": "Ceci est une description de notre site Web",
+    "settings": "Paramètres"
+  },
+  "siteInfo": {
+    "brandName": "Modèle suivant"
+  },
+  "login": {
+    "modal": {
+      "title": "Bienvenue sur Modèle suivant",
+      "description": "Connectez-vous pour continuer votre parcours",
+      "triggerText": "Se connecter"
+    },
+    "form": {
+      "continueWithGoogle": "Continuer avec Google",
+      "continueWithGithub": "Continuer avec GitHub",
+      "orContinueWith": "Ou continuer avec",
+      "emailPlaceholder": "Entrer votre adresse e-mail",
+      "signInWithEmail": "Se connecter avec l'e-mail"
+    }
+  },
+  "footer": {
+    "description": "Donner un pouvoir aux conversations avec l'IA. Découvrez le futur de la communication avec LinkAI.",
+    "contact": {
+      "title": "Contact",
+      "intro": "Pour les demandes, veuillez contacter :",
+      "email": "contact@yourdomain.com",
+      "responseTime": "Délai de réponse : Dans les 24-48 heures"
+    },
+    "quickLinks": {
+      "title": "Liens rapides",
+      "home": "Accueil",
+      "aboutUs": "À propos de nous",
+      "refundPolicy": "Politique de remboursement",
+      "subscriptionTerms": "Conditions d'abonnement"
+    },
+    "copyright": " 2024 Cozyai LLC. Tous droits réservés."
+  },
+  "common": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "morePage": "Plus de pages",
+    "close": "Fermer"
+  },
+  "headers": {
+    "home": "Accueil",
+    "about": "À propos"
   }
 }

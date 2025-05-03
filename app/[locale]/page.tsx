@@ -1,6 +1,5 @@
 import { getTranslations } from 'next-intl/server'
 
-import { TextButton } from '@/app/test'
 import { Link } from '@/i18n/navigation'
 
 export const runtime = 'edge'
@@ -12,7 +11,6 @@ export default async function Home() {
       <h1>{t('title')}</h1>
 
       <Link href="/about">{t('about')}</Link>
-      <TextButton />
     </main>
   )
 }

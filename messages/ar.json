@@ -4,8 +4,53 @@
     "about": "انتقل إلى صفحة حول"
   },
   "AboutPage": {
-    "title": "حول هذا الموقع",
+    "title": "عن هذا الموقع",
     "home": "انتقل إلى الصفحة الرئيسية",
-    "description": "هذا هو وصف لموقعنا الإلكتروني"
+    "description": "هذا وصف لموقعنا",
+    "settings": "الإعدادات"
+  },
+  "siteInfo": {
+    "brandName": "قالب التالي"
+  },
+  "login": {
+    "modal": {
+      "title": "مرحبًا بك في قالب التالي",
+      "description": "سجّل الدخول لمتابعة رحلتك",
+      "triggerText": "تسجيل الدخول"
+    },
+    "form": {
+      "continueWithGoogle": "استمر مع Google",
+      "continueWithGithub": "استمر مع GitHub",
+      "orContinueWith": "أو استمر مع",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "signInWithEmail": "سجّل الدخول عبر البريد الإلكتروني"
+    }
+  },
+  "footer": {
+    "description": "تمكين المحادثات بالذكاء الاصطناعي. اختبر مستقبل الاتصالات مع LinkAI.",
+    "contact": {
+      "title": "اتصل بنا",
+      "intro": "للاستفسارات، يرجى الاتصال:",
+      "email": "contact@yourdomain.com",
+      "responseTime": "وقت الرد: خلال 24-48 ساعة"
+    },
+    "quickLinks": {
+      "title": "روابط سريعة",
+      "home": "الصفحة الرئيسية",
+      "aboutUs": "عنّا",
+      "refundPolicy": "سياسة الاسترداد",
+      "subscriptionTerms": "شروط الاشتراك"
+    },
+    "copyright": " 2024 Cozyai LLC. جميع الحقوق محفوظة."
+  },
+  "common": {
+    "previous": "السابق",
+    "next": "التالي",
+    "morePage": "المزيد من الصفحات",
+    "close": "إغلاق"
+  },
+  "headers": {
+    "home": "الصفحة الرئيسية",
+    "about": "عنّا"
   }
 }
