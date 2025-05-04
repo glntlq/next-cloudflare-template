@@ -55,7 +55,13 @@ export type TranslationResult = {
  * @returns 翻译结果数组
  */
 export async function translateMessages(options: TranslationOptions): Promise<TranslationResult[]> {
-  const { mode = 'full', targetLocales, keys = [], force = false } = options
+  const {
+    mode = 'full',
+    targetLocales,
+    keys = [],
+    force = false,
+    model = '@cf/meta/llama-4-scout-17b-16e-instruct'
+  } = options
 
   const results: TranslationResult[] = []
 
@@ -71,145 +77,182 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
       ? locales.filter((l) => targetLocales.includes(l.code) && l.code !== 'en')
       : locales.filter((l) => l.code !== 'en')
 
-    // 处理每种语言
-    for (const locale of localesToTranslate) {
-      try {
-        console.log(`处理 ${locale.name} (${locale.code})...`)
+    if (localesToTranslate.length === 0) {
+      return [{ success: false, locale: 'all', error: '没有找到要翻译的目标语言' }]
+    }
 
-        let sourceToTranslate: any
-        let existingTranslations: any = {}
-        let missingKeys: string[] = []
-        const localeFilePath = path.join(messagesDir, `${locale.code}.json`)
+    // 根据模式确定要翻译的内容
+    let sourceToTranslate: any
+    let missingKeysByLocale: Record<string, string[]> = {}
 
-        // 检查语言文件是否已存在
-        try {
-          const existingContent = await fs.readFile(localeFilePath, 'utf-8')
-          existingTranslations = JSON.parse(existingContent)
-        } catch (err) {
-          // 文件不存在或无法解析，将创建新文件
-          console.log(`未找到 ${locale.code} 的现有翻译，将创建新文件。`)
+    switch (mode) {
+      case 'full':
+        sourceToTranslate = englishMessages
+        break
+
+      case 'keys':
+        if (keys.length === 0) {
+          throw new Error('Keys模式需要至少一个要翻译的键')
+        }
+        sourceToTranslate = extractKeys(englishMessages, keys)
+        break
+
+      case 'missing':
+        // 收集所有语言的缺失键
+        for (const locale of localesToTranslate) {
+          let existingTranslations = {}
+          const localeFilePath = path.join(messagesDir, `${locale.code}.json`)
+
+          try {
+            const existingContent = await fs.readFile(localeFilePath, 'utf-8')
+            existingTranslations = JSON.parse(existingContent)
+          } catch (err) {
+            console.log(`未找到 ${locale.code} 的现有翻译，将创建新文件。`)
+          }
+
+          const missingKeys = findMissingKeys(englishMessages, existingTranslations)
+          if (missingKeys.length > 0) {
+            missingKeysByLocale[locale.code] = missingKeys
+          }
         }
 
-        // 根据模式确定要翻译的内容
-        switch (mode) {
-          case 'full':
-            sourceToTranslate = englishMessages
-            break
-
-          case 'keys':
-            if (keys.length === 0) {
-              throw new Error('Keys模式需要至少一个要翻译的键')
-            }
-            sourceToTranslate = extractKeys(englishMessages, keys)
-            break
-
-          case 'missing':
-            missingKeys = findMissingKeys(englishMessages, existingTranslations)
-            if (missingKeys.length === 0) {
-              results.push({
-                success: true,
-                locale: locale.code,
-                message: `${locale.name} 没有发现缺失的键`,
-                translatedKeys: []
-              })
-              continue // 跳到下一个语言
-            }
-            sourceToTranslate = extractKeys(englishMessages, missingKeys)
-            break
-        }
-
-        // 如果没有要翻译的内容，则跳过
-        if (Object.keys(sourceToTranslate).length === 0) {
-          results.push({
+        // 如果所有语言都没有缺失键，则提前返回
+        if (Object.keys(missingKeysByLocale).length === 0) {
+          return localesToTranslate.map((locale) => ({
             success: true,
             locale: locale.code,
-            message: `${locale.name} 没有需要翻译的内容`,
+            message: `${locale.name} 没有发现缺失的键`,
             translatedKeys: []
+          }))
+        }
+
+        // 使用所有缺失键的并集作为源
+        const allMissingKeys = [...new Set(Object.values(missingKeysByLocale).flat())]
+        sourceToTranslate = extractKeys(englishMessages, allMissingKeys)
+        break
+    }
+
+    // 如果没有要翻译的内容，则提前返回
+    if (Object.keys(sourceToTranslate).length === 0) {
+      return localesToTranslate.map((locale) => ({
+        success: true,
+        locale: locale.code,
+        message: `${locale.name} 没有需要翻译的内容`,
+        translatedKeys: []
+      }))
+    }
+
+    // 准备多语言翻译提示
+    const languageList = localesToTranslate.map((l) => `${l.code}: ${l.name}`).join(', ')
+    const compactJSON = JSON.stringify(sourceToTranslate) // 移除格式化空白以节省tokens
+
+    console.log(compactJSON, 'compactJSON')
+
+    const prompt = `
+    I need to translate a JSON structure from English to multiple languages: ${languageList}.
+    
+    The JSON structure contains messages for an application. Please translate all text values (not the keys) to each target language.
+    
+    Rules:
+    1. Preserve all placeholders like {name}, {count}, etc.
+    2. Maintain the exact same JSON structure for each language
+    3. Return a single JSON object with language codes as top-level keys
+    
+    Source JSON (English):
+    ${compactJSON}
+    
+    Please respond with a JSON object where each top-level key is a language code, and the value is the translated JSON structure:
+    {
+      "zh": { /* Chinese translation */ },
+      "ja": { /* Japanese translation */ },
+      ...etc for all requested languages
+    }
+    
+    Return only the JSON without any additional text or explanations.
+    `
+
+    // 调用AI模型进行批量翻译
+    const response = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/${model}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+          stream: false,
+          max_tokens: 4000
+        })
+      }
+    )
+
+    if (!response.ok) {
+      throw new Error(`API调用失败: ${response.status} ${response.statusText}`)
+    }
+
+    const { result }: { result: { response: string } } = await response.json()
+
+    // 提取JSON响应
+    const jsonMatch = result.response?.match(/\{[\s\S]*\}/)
+    if (!jsonMatch) {
+      throw new Error('响应中未找到有效的JSON')
+    }
+
+    const jsonString = jsonMatch[0]
+    const allTranslations = JSON.parse(jsonString)
+
+    // 处理每种语言的翻译结果
+    for (const locale of localesToTranslate) {
+      try {
+        const localeCode = locale.code
+        const translatedContent = allTranslations[localeCode]
+
+        if (!translatedContent) {
+          results.push({
+            success: false,
+            locale: localeCode,
+            error: `未找到 ${locale.name} 的翻译结果`
           })
           continue
         }
 
-        // 准备翻译提示
-        const prompt = `
-        I need to translate a JSON structure from English to ${locale.name}.
-        
-        Let me approach this step by step:
-        
-        1. First, I'll carefully read and understand the entire JSON structure.
-        2. I'll identify all the text values that need translation, leaving the keys unchanged.
-        3. For each value, I'll translate it from English to ${locale.name} while preserving:
-           - Any placeholders like {name}, {count}, etc.
-           - Any formatting or special characters
-           - The original meaning and context
-        4. I'll maintain the exact same JSON structure and nesting
-        5. I'll verify that my output is valid JSON with properly escaped characters
-        
-        Here's the JSON to translate:
-        ${JSON.stringify(sourceToTranslate, null, 2)}
-        
-        I'll respond with only the translated JSON, without any additional text, explanations, or formatting.
-        `
+        // 读取现有翻译（如果有）
+        let existingTranslations = {}
+        const localeFilePath = path.join(messagesDir, `${localeCode}.json`)
 
-        // 调用AI模型进行翻译
-        const response = await fetch(
-          `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/meta/llama-4-scout-17b-16e-instruct`,
-          {
-            method: 'POST',
-            headers: {
-              Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              prompt,
-              stream: false,
-              max_tokens: 4000
-            })
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error(`API调用失败: ${response.status} ${response.statusText}`)
+        try {
+          const existingContent = await fs.readFile(localeFilePath, 'utf-8')
+          existingTranslations = JSON.parse(existingContent)
+        } catch (err) {
+          // 文件不存在，将创建新文件
         }
 
-        const {
-          result
-        }: {
-          result: {
-            response: string
-          }
-        } = await response.json()
-
-        console.log(result)
-
-        const jsonMatch = result.response?.match(/\{[\s\S]*\}/)
-        if (!jsonMatch) {
-          throw new Error('响应中未找到有效的JSON')
-        }
-
-        const jsonString = jsonMatch[0]
-        const translatedContent = JSON.parse(jsonString)
-
-        // 与现有翻译合并或使用新翻译
+        // 确定最终内容
         let finalContent: any
-
         if (mode === 'full' && force) {
-          // 完全替换
           finalContent = translatedContent
         } else {
-          // 与现有内容合并
           finalContent = deepMerge(existingTranslations, translatedContent)
         }
 
-        // 将翻译后的消息写入文件
+        // 写入文件
         await fs.writeFile(localeFilePath, JSON.stringify(finalContent, null, 2), 'utf-8')
 
         // 确定哪些键被翻译了
-        const translatedKeys =
-          mode === 'keys' ? keys : mode === 'missing' ? missingKeys : Object.keys(translatedContent)
+        let translatedKeys: string[]
+        if (mode === 'keys') {
+          translatedKeys = keys
+        } else if (mode === 'missing') {
+          translatedKeys = missingKeysByLocale[localeCode] || []
+        } else {
+          translatedKeys = Object.keys(translatedContent)
+        }
 
         results.push({
           success: true,
-          locale: locale.code,
+          locale: localeCode,
           message: `成功将 ${translatedKeys.length} 个键翻译为 ${locale.name}`,
           translatedKeys
         })

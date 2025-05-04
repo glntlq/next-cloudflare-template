@@ -9,9 +9,6 @@
     "description": "Esta es una descripción de nuestro sitio web",
     "settings": "Configuración"
   },
-  "siteInfo": {
-    "brandName": "Plantilla siguiente"
-  },
   "login": {
     "modal": {
       "title": "Bienvenido a Plantilla siguiente",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "Inicio",
     "about": "Acerca de"
+  },
+  "siteInfo": {
+    "brandName": "Info del sitio"
   }
 }
