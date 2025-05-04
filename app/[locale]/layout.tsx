@@ -49,8 +49,10 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
+  const currentLocale = locales.find((l) => l.code === locale)
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={currentLocale?.code ?? 'en'} dir={currentLocale?.dir || 'ltr'} suppressHydrationWarning>
       <body className="antialiased">
         <NextIntlClientProvider>
           <SessionProvider>
