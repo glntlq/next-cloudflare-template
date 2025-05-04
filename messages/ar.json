@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "مرحبا",
-    "about": "انتقل إلى صفحة حول"
+    "about": "انتقل إلى صفحة حول",
+    "meta": {
+      "title": "الصفحة الرئيسية | {brandName}",
+      "description": "مرحبا بك في الصفحة الرئيسية لـ {brandName}"
+    }
   },
   "AboutPage": {
     "title": "عن هذا الموقع",
@@ -51,6 +55,11 @@
     "about": "عنّا"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "فكر ، اكتب ، شفرة",
+    "meta": {
+      "title": "Next Template - فكر ، اكتب ، شفرة",
+      "description": "إطار عمل أمامي سريع الاستجابة وخفيف الوزن ويمكن الوصول إليه باستخدام Next.js و TypeScript و Tailwind CSS."
+    }
   }
 }

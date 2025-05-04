@@ -1,6 +1,11 @@
 {
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
   },
   "login": {
     "modal": {
@@ -45,7 +50,11 @@
   },
   "HomePage": {
     "title": "Hello",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "meta": {
+      "title": "Home | {brandName}",
+      "description": "Welcome to the home page of {brandName}"
+    }
   },
   "AboutPage": {
     "title": "About this site",

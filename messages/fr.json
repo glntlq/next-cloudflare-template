@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "Bonjour",
-    "about": "Aller à la page À propos"
+    "about": "Aller à la page À propos",
+    "meta": {
+      "title": "Accueil | {brandName}",
+      "description": "Bienvenue sur la page d'accueil de {brandName}"
+    }
   },
   "AboutPage": {
     "title": "À propos de ce site",
@@ -51,6 +55,11 @@
     "about": "À propos"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Pensez, écrivez, codez",
+    "meta": {
+      "title": "Modèle suivant - Pensez, écrivez, codez",
+      "description": "Un framework frontal réactif, léger et accessible utilisant Next.js, TypeScript et Tailwind CSS."
+    }
   }
 }

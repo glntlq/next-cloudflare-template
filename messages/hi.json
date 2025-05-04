@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "नमस्ते",
-    "about": "हमारे बारे में पृष्ठ पर जाएं"
+    "about": "हमारे बारे में पृष्ठ पर जाएं",
+    "meta": {
+      "title": "होम | {brandName}",
+      "description": "{brandName} के होम पेज पर आपका स्वागत है"
+    }
   },
   "AboutPage": {
     "title": "इस साइट के बारे में",
@@ -51,6 +55,11 @@
     "about": "हमारे बारे में"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "सोचें, लिखें, कोड करें",
+    "meta": {
+      "title": "अगला टेम्पलेट - सोचें, लिखें, कोड करें",
+      "description": "Next.js, TypeScript, और Tailwind CSS का उपयोग करने वाला एक उत्तरदायी, हल्का और सुलभ फ्रंट-एंड फ्रेमवर्क।"
+    }
   }
 }

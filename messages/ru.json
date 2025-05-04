@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "Здравствуйте",
-    "about": "Перейти на страницу о нас"
+    "about": "Перейти на страницу о нас",
+    "meta": {
+      "title": "Главная | {brandName}",
+      "description": "Добро пожаловать на домашнюю страницу {brandName}"
+    }
   },
   "AboutPage": {
     "title": "О этом сайте",
@@ -51,6 +55,11 @@
     "about": "О нас"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Подумайте, напишите, закодируйте",
+    "meta": {
+      "title": "Шаблон Next - Подумайте, напишите, закодируйте",
+      "description": "Отзывчивый, легкий и доступный фреймворк для фронтенда с использованием Next.js, TypeScript и Tailwind CSS."
+    }
   }
 }

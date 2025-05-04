@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "Hallo",
-    "about": "Gehen Sie zur Über-Seite"
+    "about": "Gehen Sie zur Über-Seite",
+    "meta": {
+      "title": "Startseite | {brandName}",
+      "description": "Willkommen auf der Startseite von {brandName}"
+    }
   },
   "AboutPage": {
     "title": "Über diese Website",
@@ -51,6 +55,11 @@
     "about": "Über uns"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Denken, Schreiben, Code",
+    "meta": {
+      "title": "Next-Vorlage - Denken, Schreiben, Code",
+      "description": "Ein responsives, leichtgewichtiges und zugängliches Front-End-Framework mit Next.js, TypeScript und Tailwind CSS."
+    }
   }
 }

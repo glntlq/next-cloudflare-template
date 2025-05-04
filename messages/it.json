@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "Ciao",
-    "about": "Vai alla pagina Chi siamo"
+    "about": "Vai alla pagina Chi siamo",
+    "meta": {
+      "title": "Home | {brandName}",
+      "description": "Benvenuto sulla pagina di {brandName}"
+    }
   },
   "AboutPage": {
     "title": "Informazioni su questo sito",
@@ -51,6 +55,11 @@
     "about": "Chi siamo"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Pensare, Scrivere, Codificare",
+    "meta": {
+      "title": "Next Template - Pensare, Scrivere, Codificare",
+      "description": "Un framework front-end responsivo, leggero e accessibile che utilizza Next.js, TypeScript e Tailwind CSS."
+    }
   }
 }

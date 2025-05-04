@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "안녕하세요",
-    "about": "회사 소개 페이지로 이동"
+    "about": "회사 소개 페이지로 이동",
+    "meta": {
+      "title": "홈 | {brandName}",
+      "description": "{brandName} 홈페이지에 오신 것을 환영합니다."
+    }
   },
   "AboutPage": {
     "title": "이 사이트 정보",
@@ -51,6 +55,11 @@
     "about": "회사 소개"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
   }
 }

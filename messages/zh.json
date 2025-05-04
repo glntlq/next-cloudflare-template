@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "您好",
-    "about": "前往关于页面"
+    "about": "前往关于页面",
+    "meta": {
+      "title": "首页 | {brandName}",
+      "description": "欢迎来到 {brandName} 的首页"
+    }
   },
   "AboutPage": {
     "title": "关于本站",
@@ -51,6 +55,11 @@
     "about": "关于"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
   }
 }

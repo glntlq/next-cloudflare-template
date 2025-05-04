@@ -1,7 +1,11 @@
 {
   "HomePage": {
     "title": "こんにちは",
-    "about": "会社概要ページへ"
+    "about": "会社概要ページへ",
+    "meta": {
+      "title": "ホーム | {brandName}",
+      "description": "ようこそ、{brandName} のホームページへ"
+    }
   },
   "AboutPage": {
     "title": "このサイトについて",
@@ -51,6 +55,11 @@
     "about": "会社概要"
   },
   "siteInfo": {
-    "brandName": "Next Template"
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
   }
 }
