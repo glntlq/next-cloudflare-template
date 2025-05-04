@@ -9,9 +9,6 @@
     "description": "Dies ist eine Beschreibung unserer Website",
     "settings": "Einstellungen"
   },
-  "siteInfo": {
-    "brandName": "Seiteninfo"
-  },
   "login": {
     "modal": {
       "title": "Willkommen bei Next Template",
@@ -41,7 +38,7 @@
       "refundPolicy": "Rückerstattungsrichtlinie",
       "subscriptionTerms": "Abonnementbedingungen"
     },
-    "copyright": " 2024 Cozyai LLC. Alle Rechte vorbehalten."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "Zurück",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "Startseite",
     "about": "Über uns"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

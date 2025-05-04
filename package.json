@@ -19,7 +19,6 @@
     "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
     "db:studio:remote": "drizzle-kit studio",
     "i18n:translate": "tsx scripts/18n/cli.ts --mode=missing",
-    "i18n:reset": "tsx scripts/18n/cli.ts --mode=full --force",
     "i18n:keys": "tsx scripts/18n/cli.ts --mode=keys --keys",
     "i18n:list": "tsx scripts/18n/cli.ts --list-locales"
   },

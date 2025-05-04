@@ -38,7 +38,7 @@
       "refundPolicy": "Política de reembolso",
       "subscriptionTerms": "Términos de suscripción"
     },
-    "copyright": " 2024 Cozyai LLC. Todos los derechos reservados."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "Anterior",
@@ -51,6 +51,6 @@
     "about": "Acerca de"
   },
   "siteInfo": {
-    "brandName": "Info del sitio"
+    "brandName": "Next Template"
   }
 }

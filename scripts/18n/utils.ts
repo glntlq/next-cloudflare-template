@@ -1,54 +1,4 @@
 /**
- * 国际化翻译工具函数
- */
-import type { TranslationResult } from './translate'
-
-/**
- * 格式化翻译结果输出
- * @param results 翻译结果数组
- * @returns 格式化后的统计信息 {total, success, failure}
- */
-export function formatTranslationResults(results: TranslationResult[]): { 
-  total: number; 
-  success: number; 
-  failure: number 
-} {
-  console.log('\n翻译结果:')
-  console.log('====================')
-
-  let successCount = 0
-  let failureCount = 0
-
-  for (const result of results) {
-    if (result.success) {
-      console.log(`✅ ${result.locale}: ${result.message}`)
-      if (result.translatedKeys && result.translatedKeys.length > 0) {
-        console.log(
-          `   Keys: ${
-            result.translatedKeys.length > 5
-              ? `${result.translatedKeys.slice(0, 5).join(', ')}... (${result.translatedKeys.length} total)`
-              : result.translatedKeys.join(', ')
-          }`
-        )
-      }
-      successCount++
-    } else {
-      console.log(`❌ ${result.locale}: ${result.error}`)
-      failureCount++
-    }
-  }
-
-  console.log('\n总结:')
-  console.log(`总计: ${results.length}, 成功: ${successCount}, 失败: ${failureCount}`)
-  
-  return {
-    total: results.length,
-    success: successCount,
-    failure: failureCount
-  }
-}
-
-/**
  * 从对象中提取指定的键
  * @param source 源对象
  * @param keys 要提取的键数组（支持点表示法）
@@ -56,16 +6,16 @@ export function formatTranslationResults(results: TranslationResult[]): {
  */
 export function extractKeys(source: Record<string, any>, keys: string[]): Record<string, any> {
   const result: Record<string, any> = {}
-  
+
   for (const key of keys) {
     const parts = key.split('.')
     let current = source
     let currentResult = result
-    
+
     // 遍历路径
     for (let i = 0; i < parts.length; i++) {
       const part = parts[i]
-      
+
       if (i === parts.length - 1) {
         // 最后一部分，设置值
         if (current && typeof current === 'object' && part in current) {
@@ -85,7 +35,7 @@ export function extractKeys(source: Record<string, any>, keys: string[]): Record
       }
     }
   }
-  
+
   return result
 }
 
@@ -95,23 +45,19 @@ export function extractKeys(source: Record<string, any>, keys: string[]): Record
  * @param target 目标对象（通常是其他语言消息）
  * @returns 缺失键的数组（点表示法）
  */
-export function findMissingKeys(
-  source: Record<string, any>, 
-  target: Record<string, any>, 
-  prefix = ''
-): string[] {
+export function findMissingKeys(source: Record<string, any>, target: Record<string, any>, prefix = ''): string[] {
   const missingKeys: string[] = []
-  
+
   for (const key in source) {
     const currentPath = prefix ? `${prefix}.${key}` : key
-    
+
     if (!(key in target)) {
       // 键完全缺失
       missingKeys.push(currentPath)
     } else if (
-      typeof source[key] === 'object' && 
-      source[key] !== null && 
-      typeof target[key] === 'object' && 
+      typeof source[key] === 'object' &&
+      source[key] !== null &&
+      typeof target[key] === 'object' &&
       target[key] !== null
     ) {
       // 递归检查嵌套对象
@@ -119,7 +65,7 @@ export function findMissingKeys(
       missingKeys.push(...nestedMissing)
     }
   }
-  
+
   return missingKeys
 }
 
@@ -131,13 +77,13 @@ export function findMissingKeys(
  */
 export function deepMerge(target: Record<string, any>, source: Record<string, any>): Record<string, any> {
   const output = { ...target }
-  
+
   for (const key in source) {
     if (
-      typeof source[key] === 'object' && 
-      source[key] !== null && 
-      key in output && 
-      typeof output[key] === 'object' && 
+      typeof source[key] === 'object' &&
+      source[key] !== null &&
+      key in output &&
+      typeof output[key] === 'object' &&
       output[key] !== null
     ) {
       // 递归合并嵌套对象
@@ -147,6 +93,43 @@ export function deepMerge(target: Record<string, any>, source: Record<string, an
       output[key] = source[key]
     }
   }
-  
+
   return output
+}
+
+/**
+ * 从对象中删除指定的键（支持点表示法）
+ * @param obj 要修改的对象
+ * @param key 要删除的键（使用点表示法表示嵌套键）
+ * @returns 是否成功删除键
+ */
+export function removeKey(obj: Record<string, any>, key: string): boolean {
+  const parts = key.split('.')
+
+  // 如果是顶层键
+  if (parts.length === 1) {
+    if (obj.hasOwnProperty(parts[0])) {
+      delete obj[parts[0]]
+      return true
+    }
+    return false
+  }
+
+  // 处理嵌套键
+  let current = obj
+  for (let i = 0; i < parts.length - 1; i++) {
+    const part = parts[i]
+    if (current[part] === undefined || typeof current[part] !== 'object') {
+      return false
+    }
+    current = current[part]
+  }
+
+  const lastPart = parts[parts.length - 1]
+  if (current.hasOwnProperty(lastPart)) {
+    delete current[lastPart]
+    return true
+  }
+
+  return false
 }

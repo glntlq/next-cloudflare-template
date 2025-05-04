@@ -9,9 +9,6 @@
     "description": "Это описание нашего веб-сайта",
     "settings": "Настройки"
   },
-  "siteInfo": {
-    "brandName": "Информация о сайте"
-  },
   "login": {
     "modal": {
       "title": "Добро пожаловать в Следующий шаблон",
@@ -41,7 +38,7 @@
       "refundPolicy": "Политика возврата",
       "subscriptionTerms": "Условия подписки"
     },
-    "copyright": " 2024 Cozyai LLC. Все права защищены."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "Предыдущий",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "Главная",
     "about": "О нас"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

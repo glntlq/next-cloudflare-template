@@ -9,9 +9,6 @@
     "description": "هذا وصف لموقعنا",
     "settings": "الإعدادات"
   },
-  "siteInfo": {
-    "brandName": "حوانت الموقع"
-  },
   "login": {
     "modal": {
       "title": "مرحبًا بك في قالب التالي",
@@ -41,7 +38,7 @@
       "refundPolicy": "سياسة الاسترداد",
       "subscriptionTerms": "شروط الاشتراك"
     },
-    "copyright": " 2024 Cozyai LLC. جميع الحقوق محفوظة."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "السابق",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "الصفحة الرئيسية",
     "about": "عنّا"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

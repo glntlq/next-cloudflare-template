@@ -9,9 +9,6 @@
     "description": "当ウェブサイトの説明",
     "settings": "設定"
   },
-  "siteInfo": {
-    "brandName": "日本模東名私司"
-  },
   "login": {
     "modal": {
       "title": "Next Templateへようこそ",
@@ -41,7 +38,7 @@
       "refundPolicy": "返金ポリシー",
       "subscriptionTerms": "サブスクリプション規約"
     },
-    "copyright": " 2024 Cozyai LLC. All rights reserved."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "前へ",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "ホーム",
     "about": "会社概要"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

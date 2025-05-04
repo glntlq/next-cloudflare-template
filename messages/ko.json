@@ -9,9 +9,6 @@
     "description": "당사 웹사이트에 대한 설명입니다.",
     "settings": "설정"
   },
-  "siteInfo": {
-    "brandName": "한구권 이게 시권 오처 이게 시권"
-  },
   "login": {
     "modal": {
       "title": "Next Template에 오신 것을 환영합니다",
@@ -41,7 +38,7 @@
       "refundPolicy": "환불 정책",
       "subscriptionTerms": "구독 조건"
     },
-    "copyright": " 2024 Cozyai LLC. 모든 권리 보유."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "이전",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "홈",
     "about": "회사 소개"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

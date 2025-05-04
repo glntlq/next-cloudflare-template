@@ -9,9 +9,6 @@
     "description": "这是我们网站的描述",
     "settings": "设置"
   },
-  "siteInfo": {
-    "brandName": "中文模東名私司"
-  },
   "login": {
     "modal": {
       "title": "欢迎来到 Next Template",
@@ -41,7 +38,7 @@
       "refundPolicy": "退款政策",
       "subscriptionTerms": "订阅条款"
     },
-    "copyright": " 2024 Cozyai LLC. All rights reserved."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "上一页",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "首页",
     "about": "关于"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

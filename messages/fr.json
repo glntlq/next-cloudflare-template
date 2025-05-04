@@ -9,9 +9,6 @@
     "description": "Ceci est une description de notre site Web",
     "settings": "Paramètres"
   },
-  "siteInfo": {
-    "brandName": "Info du site"
-  },
   "login": {
     "modal": {
       "title": "Bienvenue sur Modèle suivant",
@@ -41,7 +38,7 @@
       "refundPolicy": "Politique de remboursement",
       "subscriptionTerms": "Conditions d'abonnement"
     },
-    "copyright": " 2024 Cozyai LLC. Tous droits réservés."
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "Précédent",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "Accueil",
     "about": "À propos"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }

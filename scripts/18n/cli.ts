@@ -1,20 +1,18 @@
-/**
- * 国际化翻译命令行工具
- * 用于自动化翻译项目中的国际化消息文件
- */
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { translateMessages, TranslationMode, TranslationOptions, TranslationResult } from './translate'
+import { translateMessages, TranslationMode, TranslationOptions, deleteKeysFromMessages } from './translate'
 import { locales } from '@/i18n/routing'
+
+const noTranslates = ['siteInfo', 'footer.copyright']
 
 async function main() {
   const argv = await yargs(hideBin(process.argv))
     .option('mode', {
       alias: 'm',
       describe: '翻译模式',
-      choices: ['full', 'keys', 'missing'] as TranslationMode[],
-      default: 'full' as TranslationMode
+      choices: ['keys', 'missing'] as TranslationMode[],
+      default: 'missing' as TranslationMode
     })
     .option('locales', {
       alias: 'l',
@@ -26,16 +24,21 @@ async function main() {
       describe: '要翻译的键（逗号分隔，使用点表示法表示嵌套键）',
       type: 'string'
     })
-    .option('force', {
-      alias: 'f',
-      describe: '强制覆盖现有翻译',
-      type: 'boolean',
-      default: false
+    .option('no-translate', {
+      alias: 'n',
+      describe: '不需要翻译的键（逗号分隔，使用点表示法表示嵌套键）',
+      type: 'string',
+      default: noTranslates.join(',')
     })
     .option('list-locales', {
       describe: '列出可用的语言',
       type: 'boolean',
       default: false
+    })
+    .option('delete-keys', {
+      alias: 'd',
+      describe: '从所有语言文件中删除指定的键（逗号分隔，使用点表示法表示嵌套键）',
+      type: 'string'
     })
     .help().argv
 
@@ -48,11 +51,71 @@ async function main() {
     return
   }
 
+  // 如果请求删除键
+  if (argv['delete-keys']) {
+    const keysToDelete = argv['delete-keys'].split(',').map((k) => k.trim())
+
+    if (keysToDelete.length === 0) {
+      console.error('错误: 必须提供至少一个要删除的键')
+      process.exit(1)
+    }
+
+    console.log(`将从所有语言文件中删除以下键: ${keysToDelete.join(', ')}`)
+    console.log('警告: 此操作不可撤销！')
+
+    // 这里可以添加一个确认提示，但为简单起见，我们直接执行
+    try {
+      const results = await deleteKeysFromMessages(keysToDelete)
+
+      if (results.success) {
+        console.log('\n删除结果:')
+        console.log('====================')
+
+        let totalDeleted = 0
+
+        for (const locale in results.deletedKeys) {
+          const deletedKeys = results.deletedKeys[locale]
+          if (deletedKeys.length > 0) {
+            console.log(`✅ ${locale}: 已删除 ${deletedKeys.length} 个键`)
+            console.log(
+              `   删除的键: ${
+                deletedKeys.length > 5
+                  ? `${deletedKeys.slice(0, 5).join(', ')}... (共${deletedKeys.length}个)`
+                  : deletedKeys.join(', ')
+              }`
+            )
+            totalDeleted += deletedKeys.length
+          } else {
+            console.log(`ℹ️ ${locale}: 未找到要删除的键`)
+          }
+        }
+
+        for (const locale in results.errors) {
+          console.log(`❌ ${locale}: ${results.errors[locale]}`)
+        }
+
+        console.log('\n摘要:')
+        console.log(`总计删除: ${totalDeleted} 个键`)
+      } else {
+        console.error('删除操作失败:', results.error)
+        process.exit(1)
+      }
+
+      return
+    } catch (error) {
+      console.error('删除脚本失败:', error)
+      process.exit(1)
+    }
+  }
+
   // 解析目标语言
   const targetLocales = argv.locales ? argv.locales.split(',').map((l) => l.trim()) : undefined
 
   // 解析键
   const keys = argv.keys ? argv.keys.split(',').map((k) => k.trim()) : []
+
+  // 解析不需要翻译的键
+  const noTranslateKeys = argv['no-translate'] ? argv['no-translate'].split(',').map((k) => k.trim()) : []
 
   // 验证在'keys'模式下是否提供了键
   if (argv.mode === 'keys' && keys.length === 0) {
@@ -64,18 +127,15 @@ async function main() {
     mode: argv.mode as TranslationMode,
     targetLocales,
     keys,
-    force: argv.force
-  }
-
-  console.log(`开始在${argv.mode}模式下进行翻译...`)
-  if (targetLocales) {
-    console.log(`目标语言: ${targetLocales.join(', ')}`)
-  } else {
-    console.log('目标语言: 全部')
+    noTranslateKeys
   }
 
   if (argv.mode === 'keys') {
     console.log(`要翻译的键: ${keys.join(', ')}`)
+  }
+
+  if (noTranslateKeys.length > 0) {
+    console.log(`不需要翻译的键: ${noTranslateKeys.join(', ')}`)
   }
 
   try {
@@ -92,10 +152,19 @@ async function main() {
         console.log(`✅ ${result.locale}: ${result.message}`)
         if (result.translatedKeys && result.translatedKeys.length > 0) {
           console.log(
-            `   键: ${
+            `   翻译的键: ${
               result.translatedKeys.length > 5
                 ? `${result.translatedKeys.slice(0, 5).join(', ')}... (共${result.translatedKeys.length}个)`
                 : result.translatedKeys.join(', ')
+            }`
+          )
+        }
+        if (result.copiedKeys && result.copiedKeys.length > 0) {
+          console.log(
+            `   复制的键: ${
+              result.copiedKeys.length > 5
+                ? `${result.copiedKeys.slice(0, 5).join(', ')}... (共${result.copiedKeys.length}个)`
+                : result.copiedKeys.join(', ')
             }`
           )
         }

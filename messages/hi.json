@@ -9,9 +9,6 @@
     "description": "हमारी वेबसाइट का विवरण",
     "settings": "सेटिंग्स"
   },
-  "siteInfo": {
-    "brandName": "सिट इंफो"
-  },
   "login": {
     "modal": {
       "title": "नेक्स्ट टेम्पलेट में आपका स्वागत है",
@@ -41,7 +38,7 @@
       "refundPolicy": "वापसी नीति",
       "subscriptionTerms": "सदस्यता शर्तें"
     },
-    "copyright": " 2024 कोज़ाई एलएलसी। सभी अधिकार सुरक्षित।"
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "previous": "पिछला",
@@ -52,5 +49,8 @@
   "headers": {
     "home": "होम",
     "about": "हमारे बारे में"
+  },
+  "siteInfo": {
+    "brandName": "Next Template"
   }
 }
