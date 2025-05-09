@@ -14,14 +14,7 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
+  "tailwindCSS.experimental.configFile": "app/globals.css",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "editor.quickSuggestions": {
@@ -32,8 +25,6 @@
     "supabase",
     "Supabse"
   ],
-  "i18n-ally.localesPaths": [
-    "i18n",
-    "messages"
-  ]
+  "i18n-ally.localesPaths": ["messages", "i18n"],
+  "i18n-ally.keystyle": "nested"
 }

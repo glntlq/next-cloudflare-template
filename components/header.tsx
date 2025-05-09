@@ -20,10 +20,10 @@ export default async function Header({ className }: { className?: string }) {
         <div className="flex items-center gap-4">
           <Logo />
           <nav className="hidden items-center gap-6 md:flex">
-            <Link href="/" className="hover:text-primary text-sm font-medium transition-colors">
+            <Link href="/" className="text-foreground hover:text-primary text-sm font-medium transition-colors">
               {t('home')}
             </Link>
-            <Link href="/about" className="hover:text-primary text-sm font-medium transition-colors">
+            <Link href="/about" className="text-foreground hover:text-primary text-sm font-medium transition-colors">
               {t('about')}
             </Link>
             {/* Add more navigation links as needed */}
