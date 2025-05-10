@@ -1,34 +1,34 @@
 {
   "HomePage": {
     "title": "مرحبا",
-    "about": "انتقل إلى صفحة حول",
+    "about": "الانتقال إلى صفحة المعلومات",
     "meta": {
       "title": "الصفحة الرئيسية | {brandName}",
       "description": "مرحبا بك في الصفحة الرئيسية لـ {brandName}"
     }
   },
   "AboutPage": {
-    "title": "عن هذا الموقع",
-    "home": "انتقل إلى الصفحة الرئيسية",
-    "description": "هذا وصف لموقعنا",
+    "title": "معلومات عن هذا الموقع",
+    "home": "الانتقال إلى الصفحة الرئيسية",
+    "description": "هذا وصف لموقعنا على الإنترنت.",
     "settings": "الإعدادات"
   },
   "login": {
     "modal": {
-      "title": "مرحبًا بك في قالب التالي",
-      "description": "تسجيل الدخول لمتابعة رحلتك",
+      "title": "Welcome to Next Template",
+      "description": "تسجيل الدخول للاستمرار",
       "triggerText": "تسجيل الدخول"
     },
     "form": {
-      "continueWithGoogle": "متابعة مع Google",
-      "continueWithGithub": "متابعة مع GitHub",
-      "orContinueWith": "أو متابعة مع",
-      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "continueWithGoogle": "استمر مع Google",
+      "continueWithGithub": "استمر مع GitHub",
+      "orContinueWith": "أو استمر مع",
+      "emailPlaceholder": "أدخل عنوان البريد الإلكتروني",
       "signInWithEmail": "تسجيل الدخول عبر البريد الإلكتروني"
     }
   },
   "footer": {
-    "description": "تمكين المحادثات بالذكاء الاصطناعي. تجربة مستقبل الاتصال مع LinkAI.",
+    "description": "تعزيز المحادثات بالذكاء الاصطناعي. تجربة مستقبل الاتصالات مع LinkAI.",
     "contact": {
       "title": "اتصل بنا",
       "intro": "للاستفسارات، يرجى الاتصال بنا:",
@@ -39,27 +39,184 @@
       "title": "روابط سريعة",
       "home": "الصفحة الرئيسية",
       "aboutUs": "عنّا",
-      "refundPolicy": "سياسة الاسترداد",
+      "refundPolicy": "سياسة الاسترجاع",
       "subscriptionTerms": "شروط الاشتراك"
     },
-    "copyright": "© 2024 Cozyai LLC. All rights reserved."
+    "copyright": " 2024 Cozyai LLC. جميع الحقوق محفوظة."
   },
   "common": {
     "previous": "السابق",
     "next": "التالي",
     "morePage": "المزيد من الصفحات",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "loading": "تحميل...",
+    "cancel": "إلغاء",
+    "freeUsage": "{used}/{total} اعتمادات مجانية",
+    "save": "حفظ",
+    "edit": "تحرير",
+    "delete": "حذف",
+    "submit": "إرسال",
+    "morePages": "عرض المزيد من الصفحات",
+    "language": "اللغة",
+    "selectLanguage": "اختر اللغة"
   },
   "headers": {
     "home": "الصفحة الرئيسية",
-    "about": "عنّا"
+    "about": "نبذة"
   },
   "siteInfo": {
     "brandName": "Next Template",
-    "description": "فكر ، اكتب ، شفرة",
+    "description": "Think, Write, Code",
     "meta": {
-      "title": "Next Template - فكر ، اكتب ، شفرة",
-      "description": "إطار عمل أمامي سريع الاستجابة وخفيف الوزن ويمكن الوصول إليه باستخدام Next.js و TypeScript و Tailwind CSS."
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
     }
+  },
+  "admin": {
+    "batch": {
+      "title": "إنشاء مقالات دفعة",
+      "backToArticles": "العودة إلى المقالات",
+      "keywordsCard": {
+        "title": "أدخل الكلمات الدلالية",
+        "label": "الكلمات الدلالية (واحدة لكل سطر)",
+        "placeholder": "أدخل الكلمات الدلالية، واحدة لكل سطر"
+      },
+      "publishImmediately": "نشر على الفور",
+      "buttons": {
+        "generating": "يتم إنشاؤها...",
+        "generateArticles": "إنشاء مقالات",
+        "saving": "حفظ...",
+        "saveSelected": "حفظ المقالات المحددة"
+      },
+      "generatedArticles": {
+        "title": "المقالات التي تم إنشاؤها",
+        "selectAll": "تحديد الكل"
+      },
+      "saveResults": {
+        "title": "نتائج الحفظ"
+      },
+      "status": {
+        "generated": "✓ تم إنشاؤها",
+        "saved": "✓ تم الحفظ",
+        "failed": "✗ فشل"
+      },
+      "errors": {
+        "emptyKeywords": "الرجاء إدخال كلمة مفتاح واحدة على الأقل",
+        "noValidKeywords": "الرجاء إدخال كلمة مفتاح صالحة واحدة على الأقل",
+        "generateFailed": "فشل في إنشاء المقالات، يرجى المحاولة مرة أخرى.",
+        "noArticlesToSave": "لا توجد مقالات لحفظها",
+        "noSelectedArticles": "لم يتم اختيار أي مقالات لحفظها",
+        "saveFailed": "فشل في حفظ المقالات، يرجى المحاولة مرة أخرى."
+      },
+      "success": {
+        "generated": "تم إنشاء {successCount} مقال بنجاح{errorMessage}",
+        "saved": "{successCount} مقالات {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} فشلت"
+      },
+      "publishStatus": {
+        "published": "نشر",
+        "draft": "حفظ كمسودة"
+      }
+    },
+    "new": {
+      "title": "إنشاء مقال جديد",
+      "keywordSection": {
+        "label": "الكلمة الدلالية",
+        "placeholder": "أدخل كلمة مفتاحية للمقال"
+      },
+      "articleForm": {
+        "titleLabel": "العنوان",
+        "excerptLabel": "ملخص",
+        "contentLabel": "المحتوى",
+        "publishImmediately": "نشر على الفور",
+        "slugLabel": "Slug"
+      },
+      "buttons": {
+        "generating": "يتم إنشاؤها...",
+        "generateArticle": "إنشاء مقال",
+        "saving": "حفظ...",
+        "saveArticle": "حفظ المقال",
+        "cancel": "إلغاء"
+      },
+      "errors": {
+        "emptyKeyword": "الرجاء إدخال كلمة مفتاحية",
+        "generateFailed": "فشل في إنشاء المقال. الرجاء المحاولة مرة أخرى.",
+        "saveFailed": "فشل في حفظ المقال. الرجاء المحاولة مرة أخرى."
+      },
+      "success": {
+        "generated": "تم إنشاء المقال بنجاح",
+        "published": "تم نشر المقال",
+        "savedAsDraft": "تم حفظ المقال كمسودة"
+      },
+      "backToArticles": "العودة إلى المقالات"
+    },
+    "edit": {
+      "title": "تحرير المقال",
+      "loading": "تحميل...",
+      "articleForm": {
+        "titleLabel": "العنوان",
+        "excerptLabel": "ملخص",
+        "contentLabel": "محتوى",
+        "publishArticle": "نشر المقال"
+      },
+      "deleteDialog": {
+        "title": "تأكيد الحذف",
+        "description": "هل أنت متأكد من حذف هذه المقالة؟ لا يمكن التراجع عن هذا الإجراء."
+      },
+      "buttons": {
+        "saving": "حفظ...",
+        "saveArticle": "حفظ المقال",
+        "deleting": "جاري الحذف...",
+        "deleteArticle": "حذف المقال",
+        "delete": "حذف",
+        "cancel": "إلغاء"
+      },
+      "errors": {
+        "articleNotFound": "لم يتم العثور على المقال",
+        "fetchFailed": "فشل في جلب المقال",
+        "updateFailed": "فشل في تحديث المقال",
+        "deleteFailed": "فشل في حذف المقال"
+      },
+      "success": {
+        "updated": "تم تحديث المقال بنجاح",
+        "deleted": "تم حذف المقال بنجاح"
+      }
+    },
+    "list": {
+      "title": "إدارة المقالات",
+      "buttons": {
+        "createNew": "إنشاء مقال جديد",
+        "batchCreate": "إنشاء دفعة"
+      },
+      "table": {
+        "headers": {
+          "title": "العنوان",
+          "createdDate": "تاريخ الإنشاء",
+          "status": "الحالة",
+          "actions": "إجراءات"
+        },
+        "noArticles": "لا توجد مقالات"
+      },
+      "status": {
+        "published": "نشر",
+        "draft": "مسودة"
+      },
+      "actions": {
+        "edit": "تحرير",
+        "view": "عرض"
+      }
+    }
+  },
+  "blog": {
+    "postNotFound": "لم يتم العثور على المنشور",
+    "postNotFoundDescription": "لم يتم العثور على مشاركة مدونة التي تبحث عنها.",
+    "publishedAt": "نُشر في {date}"
+  },
+  "blogs": {
+    "pageTitle": "مشاركات المدونة",
+    "metaTitle": "رؤى ومقالات | {brandName} مدونة",
+    "metaDescription": "استكشف أحدث مقالاتنا حول تحليل الجمال، وتكنولوجيا الذكاء الاصطناعي، وجماليات الوجه. اكتشف رؤى الخبراء، والنصائح، والاتجاهات في عالم تقييم الجمال المدعوم بالذكاء الاصطناعي.",
+    "noArticles": "لا تتوفر مقالات",
+    "publishedAt": "نُشر في {date}"
   }
 }

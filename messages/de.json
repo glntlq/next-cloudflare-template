@@ -1,34 +1,34 @@
 {
   "HomePage": {
     "title": "Hallo",
-    "about": "Gehen Sie zur Über-Seite",
+    "about": "Zur Info-Seite gehen",
     "meta": {
-      "title": "Startseite | {brandName}",
+      "title": "Home | {brandName}",
       "description": "Willkommen auf der Startseite von {brandName}"
     }
   },
   "AboutPage": {
     "title": "Über diese Website",
-    "home": "Gehen Sie zur Startseite",
-    "description": "Dies ist eine Beschreibung unserer Website",
+    "home": "Zur Startseite gehen",
+    "description": "Dies ist eine Beschreibung unserer Website.",
     "settings": "Einstellungen"
   },
   "login": {
     "modal": {
-      "title": "Willkommen bei Next Template",
-      "description": "Anmelden, um Ihre Reise fortzusetzen",
+      "title": "Welcome to Next Template",
+      "description": "Melden Sie sich an, um fortzufahren",
       "triggerText": "Anmelden"
     },
     "form": {
       "continueWithGoogle": "Mit Google fortfahren",
       "continueWithGithub": "Mit GitHub fortfahren",
       "orContinueWith": "Oder mit",
-      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "emailPlaceholder": "E-Mail-Adresse eingeben",
       "signInWithEmail": "Mit E-Mail anmelden"
     }
   },
   "footer": {
-    "description": "Ermöglichung von Gesprächen mit KI. Erleben Sie die Zukunft der Kommunikation mit LinkAI.",
+    "description": "Gespräche mit KI ermöglichen. Erleben Sie die Zukunft der Kommunikation mit LinkAI.",
     "contact": {
       "title": "Kontakt",
       "intro": "Für Anfragen kontaktieren Sie uns bitte:",
@@ -42,24 +42,181 @@
       "refundPolicy": "Rückerstattungsrichtlinie",
       "subscriptionTerms": "Abonnementbedingungen"
     },
-    "copyright": "© 2024 Cozyai LLC. All rights reserved."
+    "copyright": " 2024 Cozyai LLC. Alle Rechte vorbehalten."
   },
   "common": {
     "previous": "Zurück",
     "next": "Weiter",
     "morePage": "Mehr Seiten",
-    "close": "Schließen"
+    "close": "Schließen",
+    "loading": "Lädt...",
+    "cancel": "Abbrechen",
+    "freeUsage": "{used}/{total} Kostenlose Credits",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "submit": "Einreichen",
+    "morePages": "Mehr Seiten anzeigen",
+    "language": "Sprache",
+    "selectLanguage": "Sprache auswählen"
   },
   "headers": {
     "home": "Startseite",
-    "about": "Über uns"
+    "about": "Über"
   },
   "siteInfo": {
     "brandName": "Next Template",
-    "description": "Denken, Schreiben, Code",
+    "description": "Think, Write, Code",
     "meta": {
-      "title": "Next-Vorlage - Denken, Schreiben, Code",
-      "description": "Ein responsives, leichtgewichtiges und zugängliches Front-End-Framework mit Next.js, TypeScript und Tailwind CSS."
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
     }
+  },
+  "admin": {
+    "batch": {
+      "title": "Stapelartikel erstellen",
+      "backToArticles": "Zurück zu Artikeln",
+      "keywordsCard": {
+        "title": "Schlüsselwörter eingeben",
+        "label": "Schlüsselwörter (einer pro Zeile)",
+        "placeholder": "Schlüsselwörter eingeben, eines pro Zeile"
+      },
+      "publishImmediately": "Sofort veröffentlichen",
+      "buttons": {
+        "generating": "Wird generiert...",
+        "generateArticles": "Artikel generieren",
+        "saving": "Wird gespeichert...",
+        "saveSelected": "Ausgewählte Artikel speichern"
+      },
+      "generatedArticles": {
+        "title": "Generierte Artikel",
+        "selectAll": "Alle auswählen"
+      },
+      "saveResults": {
+        "title": "Speicherergebnisse"
+      },
+      "status": {
+        "generated": "✓ Generiert",
+        "saved": "✓ Gespeichert",
+        "failed": "✗ Fehlgeschlagen"
+      },
+      "errors": {
+        "emptyKeywords": "Bitte geben Sie mindestens ein Schlüsselwort ein",
+        "noValidKeywords": "Bitte geben Sie mindestens ein gültiges Schlüsselwort ein",
+        "generateFailed": "Fehler beim Generieren von Artikeln. Bitte versuchen Sie es erneut.",
+        "noArticlesToSave": "Keine Artikel zum Speichern vorhanden",
+        "noSelectedArticles": "Keine Artikel zum Speichern ausgewählt",
+        "saveFailed": "Fehler beim Speichern von Artikeln. Bitte versuchen Sie es erneut."
+      },
+      "success": {
+        "generated": "{successCount} Artikel erfolgreich generiert{errorMessage}",
+        "saved": "{successCount} Artikel {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} fehlgeschlagen"
+      },
+      "publishStatus": {
+        "published": "veröffentlicht",
+        "draft": "als Entwurf gespeichert"
+      }
+    },
+    "new": {
+      "title": "Neuen Artikel erstellen",
+      "keywordSection": {
+        "label": "Schlüsselwort",
+        "placeholder": "Artikel-Schlüsselwort eingeben"
+      },
+      "articleForm": {
+        "titleLabel": "Titel",
+        "excerptLabel": "Zusammenfassung",
+        "contentLabel": "Inhalt",
+        "publishImmediately": "Sofort veröffentlichen",
+        "slugLabel": "Slug"
+      },
+      "buttons": {
+        "generating": "Wird generiert...",
+        "generateArticle": "Artikel generieren",
+        "saving": "Wird gespeichert...",
+        "saveArticle": "Artikel speichern",
+        "cancel": "Abbrechen"
+      },
+      "errors": {
+        "emptyKeyword": "Bitte geben Sie ein Schlüsselwort ein",
+        "generateFailed": "Fehler beim Generieren des Artikels. Bitte versuchen Sie es erneut.",
+        "saveFailed": "Fehler beim Speichern des Artikels. Bitte versuchen Sie es erneut."
+      },
+      "success": {
+        "generated": "Artikel erfolgreich generiert",
+        "published": "Artikel veröffentlicht",
+        "savedAsDraft": "Artikel als Entwurf gespeichert"
+      },
+      "backToArticles": "Zurück zu Artikeln"
+    },
+    "edit": {
+      "title": "Artikel bearbeiten",
+      "loading": "Lädt...",
+      "articleForm": {
+        "titleLabel": "Titel",
+        "excerptLabel": "Zusammenfassung",
+        "contentLabel": "Inhalt",
+        "publishArticle": "Artikel veröffentlichen"
+      },
+      "deleteDialog": {
+        "title": "Löschen bestätigen",
+        "description": "Sind Sie sicher, dass Sie diesen Artikel löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+      },
+      "buttons": {
+        "saving": "Wird gespeichert...",
+        "saveArticle": "Artikel speichern",
+        "deleting": "Wird gelöscht...",
+        "deleteArticle": "Artikel löschen",
+        "delete": "Löschen",
+        "cancel": "Abbrechen"
+      },
+      "errors": {
+        "articleNotFound": "Artikel nicht gefunden",
+        "fetchFailed": "Fehler beim Abrufen des Artikels",
+        "updateFailed": "Fehler beim Aktualisieren des Artikels",
+        "deleteFailed": "Fehler beim Löschen des Artikels"
+      },
+      "success": {
+        "updated": "Artikel erfolgreich aktualisiert",
+        "deleted": "Artikel erfolgreich gelöscht"
+      }
+    },
+    "list": {
+      "title": "Artikelverwaltung",
+      "buttons": {
+        "createNew": "Neuer Artikel erstellen",
+        "batchCreate": "Mehrere Artikel erstellen"
+      },
+      "table": {
+        "headers": {
+          "title": "Titel",
+          "createdDate": "Erstellungsdatum",
+          "status": "Status",
+          "actions": "Aktionen"
+        },
+        "noArticles": "Keine Artikel gefunden"
+      },
+      "status": {
+        "published": "Veröffentlicht",
+        "draft": "Entwurf"
+      },
+      "actions": {
+        "edit": "Bearbeiten",
+        "view": "Anzeigen"
+      }
+    }
+  },
+  "blog": {
+    "postNotFound": "Beitrag nicht gefunden",
+    "postNotFoundDescription": "Der gesuchte Blog-Beitrag konnte nicht gefunden werden.",
+    "publishedAt": "Veröffentlicht am {date}"
+  },
+  "blogs": {
+    "pageTitle": "Blog-Beiträge",
+    "metaTitle": "Einblicke und Artikel | {brandName} Blog",
+    "metaDescription": "Entdecken Sie unsere neuesten Artikel über Beauty-Analyse, KI-Technologie und Gesichtsaesthetik. Erhalten Sie Experten-Einblicke, Tipps und Trends aus der Welt der KI-gestützten Schönheitsbewertung.",
+    "noArticles": "Keine Artikel verfügbar",
+    "publishedAt": "Veröffentlicht am {date}"
   }
 }
