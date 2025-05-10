@@ -8,8 +8,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "demo",
-      "database_id": "120f9d8a-8bf9-4a8f-81cb-b707fc90b5da",
+      "database_name": "next-template",
+      "database_id": "76508c42-476a-458d-ae33-045e333d8bf4",
       "migrations_dir": "migrations"
     }
   ],

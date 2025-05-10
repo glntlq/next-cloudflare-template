@@ -12,7 +12,7 @@ const DATABASE_NAME = process.env.DATABASE_NAME || 'next-template-db'
 const KV_NAMESPACE_NAME = process.env.KV_NAMESPACE_NAME || 'next-template-kv'
 const KV_NAMESPACE_ID = process.env.KV_NAMESPACE_ID
 
-const environments = ['AUTH_GOOGLE_ID', 'AUTH_SECRET', 'AUTH_GOOGLE_SECRET', 'NEXT_PUBLIC_BASE_URL']
+const environments = ['AUTH_SECRET', 'AUTH_GOOGLE_ID', 'AUTH_GOOGLE_SECRET', 'AUTH_RESEND_KEY', 'NEXT_PUBLIC_BASE_URL']
 
 /**
  * 验证必要的环境变量
