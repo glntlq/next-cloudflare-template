@@ -1,4 +1,12 @@
 {
+  "headers": {
+    "blogs": "Blogs",
+    "home": "Home",
+    "about": "About",
+    "account": "Account",
+    "navigation": "Site Navigation",
+    "navigationDescription": "Access the main sections of our website"
+  },
   "siteInfo": {
     "brandName": "Next Template",
     "description": "Think, Write, Code",
@@ -8,6 +16,8 @@
     }
   },
   "login": {
+    "signOut": "Sign Out",
+    "login": "Login",
     "modal": {
       "title": "Welcome to Next Template",
       "description": "Sign in to continue your journey",
@@ -52,10 +62,6 @@
     "morePages": "View More Pages",
     "language": "Language",
     "selectLanguage": "Select Language"
-  },
-  "headers": {
-    "home": "Home",
-    "about": "About"
   },
   "HomePage": {
     "title": "Hello",

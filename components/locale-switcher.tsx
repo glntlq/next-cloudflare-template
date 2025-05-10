@@ -3,13 +3,11 @@
 import { Check, Globe } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { Locale, useLocale } from 'next-intl'
-import { useTransition } from 'react'
+import { startTransition } from 'react'
 
-import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
-import { cn } from '@/lib/utils'
 
 type Props = {
   defaultValue: string
@@ -17,7 +15,6 @@ type Props = {
 
 export function LocaleSwitcherSelect({ defaultValue }: Props) {
   const router = useRouter()
-  const [isPending, startTransition] = useTransition()
   const pathname = usePathname()
   const params = useParams()
 
@@ -36,15 +33,7 @@ export function LocaleSwitcherSelect({ defaultValue }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className={cn('flex h-9 items-center gap-1 px-2', isPending && 'pointer-events-none opacity-50')}
-          disabled={isPending}
-        >
-          <Globe className="size-4" />
-          <span className="text-sm font-medium">{defaultValue}</span>
-        </Button>
+        <Globe className="size-5" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map((locale) => (

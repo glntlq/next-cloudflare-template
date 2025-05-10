@@ -25,7 +25,9 @@
       "orContinueWith": "または続行する",
       "emailPlaceholder": "メールアドレスを入力してください",
       "signInWithEmail": "メールアドレスでサインイン"
-    }
+    },
+    "signOut": "ログアウト",
+    "login": "ログイン"
   },
   "footer": {
     "description": "AIで会話に力を与える。LinkAIでコミュニケーションの未来を体験してください。",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "ホーム",
-    "about": "について"
+    "about": "について",
+    "blogs": "ブログ",
+    "navigation": "サイトのナビゲーション",
+    "navigationDescription": "ウェブサイトの主要セクションにアクセスする",
+    "account": "アカウント"
   },
   "siteInfo": {
     "brandName": "Next Template",

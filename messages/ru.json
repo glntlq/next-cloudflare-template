@@ -25,7 +25,9 @@
       "orContinueWith": "Или продолжить с",
       "emailPlaceholder": "Введите ваш адрес электронной почты",
       "signInWithEmail": "Войти с помощью электронной почты"
-    }
+    },
+    "signOut": "Выйти",
+    "login": "Войти"
   },
   "footer": {
     "description": "Расширяем возможности общения с помощью ИИ. Опыт будущего общения с LinkAI.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "Главная",
-    "about": "О нас"
+    "about": "О нас",
+    "blogs": "Блоги",
+    "navigation": "Навигация по сайту",
+    "navigationDescription": "Доступ к основным разделам нашего веб-сайта",
+    "account": "Конто"
   },
   "siteInfo": {
     "brandName": "Next Template",

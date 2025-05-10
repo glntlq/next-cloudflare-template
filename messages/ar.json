@@ -25,7 +25,9 @@
       "orContinueWith": "أو استمر مع",
       "emailPlaceholder": "أدخل عنوان البريد الإلكتروني",
       "signInWithEmail": "تسجيل الدخول عبر البريد الإلكتروني"
-    }
+    },
+    "signOut": "تسجيل الخروج",
+    "login": "تسجيل الدخول"
   },
   "footer": {
     "description": "تعزيز المحادثات بالذكاء الاصطناعي. تجربة مستقبل الاتصالات مع LinkAI.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "الصفحة الرئيسية",
-    "about": "نبذة"
+    "about": "نبذة",
+    "blogs": "المدونات",
+    "navigation": "تنقل الموقع",
+    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت",
+    "account": "حساب"
   },
   "siteInfo": {
     "brandName": "Next Template",

@@ -25,7 +25,9 @@
       "orContinueWith": "또는 계속",
       "emailPlaceholder": "이메일 주소를 입력하세요",
       "signInWithEmail": "이메일로 로그인"
-    }
+    },
+    "signOut": "로그아웃",
+    "login": "로그인"
   },
   "footer": {
     "description": "AI를 통한 대화 강화. LinkAI와 함께 커뮤니케이션의 미래를 경험하세요.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "홈",
-    "about": "정보"
+    "about": "정보",
+    "blogs": "블로그",
+    "navigation": "사이트 탐색",
+    "navigationDescription": "웹사이트의 주요 섹션에 액세스",
+    "account": "계치"
   },
   "siteInfo": {
     "brandName": "Next Template",

@@ -41,7 +41,9 @@
       "orContinueWith": "或继续使用",
       "emailPlaceholder": "输入您的电子邮件",
       "signInWithEmail": "使用电子邮件登录"
-    }
+    },
+    "signOut": "退出登录",
+    "login": "登录"
   },
   "footer": {
     "description": "通过人工智能赋予对话力量。体验与LinkAI沟通的未来。",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "首页",
-    "about": "关于"
+    "about": "关于",
+    "blogs": "博客",
+    "navigation": "站点导航",
+    "navigationDescription": "访问我们网站的主要部分",
+    "account": "账户"
   },
   "siteInfo": {
     "brandName": "Next Template",

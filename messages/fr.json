@@ -25,7 +25,9 @@
       "orContinueWith": "Ou continuer avec",
       "emailPlaceholder": "Entrer votre adresse e-mail",
       "signInWithEmail": "Se connecter avec l'e-mail"
-    }
+    },
+    "signOut": "Déconnexion",
+    "login": "Se connecter"
   },
   "footer": {
     "description": "Donner du pouvoir aux conversations avec l'IA. Expériencez le futur de la communication avec LinkAI.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "Accueil",
-    "about": "À propos"
+    "about": "À propos",
+    "blogs": "Blogs",
+    "navigation": "Navigation du site",
+    "navigationDescription": "Accédez aux principales sections de notre site Web",
+    "account": "Compte"
   },
   "siteInfo": {
     "brandName": "Next Template",

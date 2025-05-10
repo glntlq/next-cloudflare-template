@@ -3,7 +3,6 @@ import { SessionProvider } from 'next-auth/react'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
-import Container from '@/components/container'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
@@ -58,7 +57,9 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <SessionProvider>
             <Header />
-            <Container>{children}</Container>
+            <main className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-1 flex-col px-2.5 py-8 md:px-20">
+              {children}
+            </main>
             <Footer />
           </SessionProvider>
           <Toaster richColors />

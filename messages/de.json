@@ -25,7 +25,9 @@
       "orContinueWith": "Oder mit",
       "emailPlaceholder": "E-Mail-Adresse eingeben",
       "signInWithEmail": "Mit E-Mail anmelden"
-    }
+    },
+    "signOut": "Abmelden",
+    "login": "Anmelden"
   },
   "footer": {
     "description": "Gespräche mit KI ermöglichen. Erleben Sie die Zukunft der Kommunikation mit LinkAI.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "Startseite",
-    "about": "Über"
+    "about": "Über",
+    "blogs": "Blogs",
+    "navigation": "Site-Navigation",
+    "navigationDescription": "Greifen Sie auf die Hauptabschnitte unserer Website zu",
+    "account": "Konto"
   },
   "siteInfo": {
     "brandName": "Next Template",

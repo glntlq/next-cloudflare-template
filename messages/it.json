@@ -25,7 +25,9 @@
       "orContinueWith": "O continua con",
       "emailPlaceholder": "Inserisci il tuo indirizzo email",
       "signInWithEmail": "Accedi con l'email"
-    }
+    },
+    "signOut": "Disconnetti",
+    "login": "Accedi"
   },
   "footer": {
     "description": "Potenzia le conversazioni con l'intelligenza artificiale. Sperimenta il futuro della comunicazione con LinkAI.",
@@ -62,7 +64,11 @@
   },
   "headers": {
     "home": "Home",
-    "about": "Informazioni"
+    "about": "Informazioni",
+    "blogs": "Blogs",
+    "navigation": "Navigazione del sito",
+    "navigationDescription": "Accedi alle sezioni principali del nostro sito web",
+    "account": "Conto"
   },
   "siteInfo": {
     "brandName": "Next Template",
