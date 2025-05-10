@@ -22,7 +22,6 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   const allArticles = await getAllArticles(locale)
   const t = await getTranslations('blogs')
 
-  // Only show published articles
   const publishedArticles = allArticles.filter((article) => article.publishedAt)
 
   return (

@@ -193,7 +193,8 @@
           "title": "Заголовок",
           "createdDate": "Дата создания",
           "status": "Статус",
-          "actions": "Действия"
+          "actions": "Действия",
+          "language": "Язык"
         },
         "noArticles": "Статьи не найдены"
       },

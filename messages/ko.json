@@ -193,7 +193,8 @@
           "title": "제목",
           "createdDate": "생성 날짜",
           "status": "상태",
-          "actions": "작업"
+          "actions": "작업",
+          "language": "언어"
         },
         "noArticles": "文章을 찾을 수 없습니다."
       },

@@ -193,7 +193,8 @@
           "title": "शीर्षक",
           "createdDate": "बनाने की तारीख",
           "status": "स्थिति",
-          "actions": "कार्रवाई"
+          "actions": "कार्रवाई",
+          "language": "भाषा"
         },
         "noArticles": "कोई लेख नहीं मिला"
       },

@@ -193,7 +193,8 @@
           "title": "Título",
           "createdDate": "Data de criação",
           "status": "Status",
-          "actions": "Ações"
+          "actions": "Ações",
+          "language": "Língua"
         },
         "noArticles": "Nenhum artigo encontrado"
       },

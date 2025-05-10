@@ -1,4 +1,20 @@
 {
+  "common": {
+    "previous": "上一页",
+    "next": "下一页",
+    "morePage": "更多页面",
+    "close": "关闭",
+    "loading": "正在加载...",
+    "cancel": "取消",
+    "freeUsage": "{used}/{total} 免费积分",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "submit": "提交",
+    "morePages": "查看更多页面",
+    "language": "语言",
+    "selectLanguage": "选择语言"
+  },
   "HomePage": {
     "title": "你好",
     "about": "前往关于页面",
@@ -43,25 +59,6 @@
       "subscriptionTerms": "订阅条款"
     },
     "copyright": " 2024 Cozyai LLC. 版权所有。"
-  },
-  "common": {
-    "previous": "上一页",
-    "next": "下一页",
-    "morePage": "更多页面",
-    "close": "关闭",
-    "loading": "正在加载...",
-    "cancel": "取消",
-    "freeUsage": "{used}/{total} 免费积分",
-    "save": "保存",
-    "edit": "编辑",
-    "delete": "删除",
-    "submit": "提交",
-    "morePages": "查看更多页面",
-    "language": "语言",
-    "selectLanguage": "选择语言",
-    "articleForm": {
-      "slugLabel": "11"
-    }
   },
   "headers": {
     "home": "首页",
@@ -208,7 +205,8 @@
           "title": "标题",
           "createdDate": "创建日期",
           "status": "状态",
-          "actions": "操作"
+          "actions": "操作",
+          "language": "语言"
         },
         "noArticles": "未找到文章"
       },

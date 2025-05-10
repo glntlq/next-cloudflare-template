@@ -193,7 +193,8 @@
           "title": "タイトル",
           "createdDate": "作成日",
           "status": "ステータス",
-          "actions": "アクション"
+          "actions": "アクション",
+          "language": "詞詞"
         },
         "noArticles": "記事が見つかりません"
       },

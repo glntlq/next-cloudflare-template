@@ -204,7 +204,8 @@
           "title": "Title",
           "createdDate": "Created Date",
           "status": "Status",
-          "actions": "Actions"
+          "actions": "Actions",
+          "language": "Language"
         },
         "noArticles": "No articles found"
       },

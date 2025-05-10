@@ -251,9 +251,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {item.status === 'success' ? (
-                      <span className="text-green-500">{t('status.generated')}</span>
+                      <span className="text-success font-medium">{t('status.generated')}</span>
                     ) : (
-                      <span className="text-red-500">{t('status.failed')}</span>
+                      <span className="text-destructive font-medium">{t('status.failed')}</span>
                     )}
                   </div>
                 </div>
@@ -277,9 +277,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {result.status === 'success' ? (
-                      <span className="text-green-500">{t('status.saved')}</span>
+                      <span className="text-success font-medium">{t('status.saved')}</span>
                     ) : (
-                      <span className="text-red-500">{t('status.failed')}</span>
+                      <span className="text-destructive font-medium">{t('status.failed')}</span>
                     )}
                   </div>
                 </div>

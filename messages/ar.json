@@ -193,7 +193,8 @@
           "title": "العنوان",
           "createdDate": "تاريخ الإنشاء",
           "status": "الحالة",
-          "actions": "إجراءات"
+          "actions": "إجراءات",
+          "language": "اللغة"
         },
         "noArticles": "لا توجد مقالات"
       },
