@@ -79,7 +79,18 @@ export default function BatchArticlesPage() {
           }
         })
 
-        const batchResults = await Promise.all(batchPromises)
+        const batchResults = []
+        for (const promise of batchPromises) {
+          try {
+            const result = await promise
+            batchResults.push(result)
+          } catch (error) {
+            batchResults.push({
+              status: 'error',
+              error: error instanceof Error ? error.message : 'Unknown error'
+            })
+          }
+        }
         results.push(...batchResults)
       }
 
