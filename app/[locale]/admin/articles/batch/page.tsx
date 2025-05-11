@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-import { generateArticle, saveBatchArticles } from '@/actions/ai-content'
+import { saveBatchArticles } from '@/actions/ai-content'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -47,26 +47,35 @@ export default function BatchArticlesPage() {
     }
 
     setIsGenerating(true)
-    const concurrencyLimit = 10
+    const batchSize = 3
     const results = []
 
     try {
-      for (let i = 0; i < keywords.length; i += concurrencyLimit) {
-        const batch = keywords.slice(i, i + concurrencyLimit)
+      for (let i = 0; i < keywords.length; i += batchSize) {
+        const batch = keywords.slice(i, i + batchSize)
         const batchPromises = batch.map(async (keyword) => {
-          try {
-            const article = await generateArticle({ keyword, locale: selectedLocale })
+          const response = await fetch('/api/generate-article', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ keyword, locale: selectedLocale })
+          })
+
+          if (!response.ok) {
+            const errorData = await response.json()
             return {
               keyword,
-              article,
-              status: 'success'
-            }
-          } catch (error) {
-            return {
-              keyword,
-              error: error instanceof Error ? error.message : 'Unknown error',
+              error: errorData,
               status: 'error'
             }
+          }
+
+          const article = await response.json()
+          return {
+            keyword,
+            article,
+            status: 'success'
           }
         })
 
@@ -98,7 +107,6 @@ export default function BatchArticlesPage() {
       setIsGenerating(false)
     }
   }
-
   const handleSave = async () => {
     if (generatedArticles.length === 0) {
       toast.error(t('errors.noArticlesToSave'))
