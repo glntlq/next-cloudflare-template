@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-import { generateBatchArticles, saveBatchArticles } from '@/actions/ai-content'
+import { generateArticle, saveBatchArticles } from '@/actions/ai-content'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -47,22 +47,43 @@ export default function BatchArticlesPage() {
     }
 
     setIsGenerating(true)
+    const concurrencyLimit = 10
+    const results = []
+
     try {
-      const articles = await generateBatchArticles({
-        keywords,
-        locale: selectedLocale // Pass the selected locale to the API
-      })
+      for (let i = 0; i < keywords.length; i += concurrencyLimit) {
+        const batch = keywords.slice(i, i + concurrencyLimit)
+        const batchPromises = batch.map(async (keyword) => {
+          try {
+            const article = await generateArticle({ keyword, locale: selectedLocale })
+            return {
+              keyword,
+              article,
+              status: 'success'
+            }
+          } catch (error) {
+            return {
+              keyword,
+              error: error instanceof Error ? error.message : 'Unknown error',
+              status: 'error'
+            }
+          }
+        })
+
+        const batchResults = await Promise.all(batchPromises)
+        results.push(...batchResults)
+      }
 
       // Add selected property to each successful article
-      const articlesWithSelection = articles.map((item) => ({
+      const articlesWithSelection = results.map((item) => ({
         ...item,
         selected: item.status === 'success'
       }))
 
       setGeneratedArticles(articlesWithSelection)
 
-      const successCount = articles.filter((a) => a.status === 'success').length
-      const errorCount = articles.filter((a) => a.status === 'error').length
+      const successCount = results.filter((a) => a.status === 'success').length
+      const errorCount = results.filter((a) => a.status === 'error').length
 
       toast.success(
         t('success.generated', {

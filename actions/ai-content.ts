@@ -12,11 +12,6 @@ interface ArticleGenerationParams {
   locale?: string
 }
 
-interface BatchArticleGenerationParams {
-  keywords: string[]
-  locale?: string
-}
-
 function getLanguageNameFromLocale(localeCode: string): string {
   const locale = locales.find((l) => l.code === localeCode)
   if (locale) {
@@ -186,37 +181,6 @@ export async function deleteArticle(slug: string) {
   const database = createDb()
   await database.delete(posts).where(eq(posts.slug, slug))
   return { success: true }
-}
-
-export async function generateBatchArticles(params: BatchArticleGenerationParams) {
-  const { keywords, locale = 'en' } = params
-  const concurrencyLimit = 10
-  const results = []
-
-  for (let i = 0; i < keywords.length; i += concurrencyLimit) {
-    const batch = keywords.slice(i, i + concurrencyLimit)
-    const batchPromises = batch.map(async (keyword) => {
-      try {
-        const article = await generateArticle({ keyword, locale })
-        return {
-          keyword,
-          article,
-          status: 'success'
-        }
-      } catch (error) {
-        return {
-          keyword,
-          error: error instanceof Error ? error.message : 'Unknown error',
-          status: 'error'
-        }
-      }
-    })
-
-    const batchResults = await Promise.all(batchPromises)
-    results.push(...batchResults)
-  }
-
-  return results
 }
 
 export async function saveBatchArticles(
