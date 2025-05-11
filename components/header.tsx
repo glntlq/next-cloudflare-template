@@ -24,29 +24,31 @@ export default async function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        'bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur',
+        'bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b px-4 backdrop-blur sm:px-6 lg:px-18',
         className
       )}
     >
-      <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="hidden w-full items-center justify-between md:flex">
         <div className="flex items-center">
           <Logo />
+          <div className="ml-12 flex space-x-8">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={pcLinkStyle}>
+                {t(link.label as any)}
+                <span className="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </div>
         </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={pcLinkStyle}>
-              {t(link.label as any)}
-              <span className="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
-          <LoginModal />
+        <div className="flex items-center gap-6">
           <LocaleSwitcher />
-        </nav>
+          <LoginModal />
+        </div>
+      </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-4 md:hidden">
+      <div className="flex w-full items-center justify-between gap-4 md:hidden">
+        <Logo />
+        <div className="flex items-center gap-4">
           <LocaleSwitcher />
           <Sheet>
             <SheetTrigger asChild>

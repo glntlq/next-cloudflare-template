@@ -15,6 +15,22 @@
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
     }
   },
+  "footer": {
+    "description": "Empowering conversations with AI. Experience the future of communication with LinkAI.",
+    "contact": {
+      "title": "Contact",
+      "intro": "For inquiries, please contact:",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "aboutUs": "About Us",
+      "refundPolicy": "Refund Policy",
+      "subscriptionTerms": "Subscription Terms"
+    },
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
+  },
   "login": {
     "signOut": "Sign Out",
     "login": "Login",
@@ -30,23 +46,6 @@
       "emailPlaceholder": "Enter your email",
       "signInWithEmail": "Sign in with Email"
     }
-  },
-  "footer": {
-    "description": "Empowering conversations with AI. Experience the future of communication with LinkAI.",
-    "contact": {
-      "title": "Contact",
-      "intro": "For inquiries, please contact:",
-      "email": "contact@yourdomain.com",
-      "responseTime": "Response time: Within 24-48 hours"
-    },
-    "quickLinks": {
-      "title": "Quick Links",
-      "home": "Home",
-      "aboutUs": "About Us",
-      "refundPolicy": "Refund Policy",
-      "subscriptionTerms": "Subscription Terms"
-    },
-    "copyright": "© 2024 Cozyai LLC. All rights reserved."
   },
   "common": {
     "loading": "Loading...",

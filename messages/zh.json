@@ -50,8 +50,7 @@
     "contact": {
       "title": "联系",
       "intro": "如需查询，请联系：",
-      "email": "contact@yourdomain.com",
-      "responseTime": "响应时间：24-48 小时内"
+      "email": "contact@yourdomain.com"
     },
     "quickLinks": {
       "title": "快速链接",

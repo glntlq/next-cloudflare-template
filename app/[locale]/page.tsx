@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
+import { SeverLessTestComponent } from '@/app/[locale]/server-less-test'
 import { Link } from '@/i18n/navigation'
 
 export const runtime = 'edge'
@@ -24,7 +25,10 @@ export default async function Home() {
   return (
     <div>
       <h1>{t('title')}</h1>
-
+      <SeverLessTestComponent />
+      <SeverLessTestComponent />
+      <SeverLessTestComponent />
+      <SeverLessTestComponent />
       <Link href="/about">{t('about')}</Link>
     </div>
   )

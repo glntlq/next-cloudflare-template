@@ -34,8 +34,7 @@
     "contact": {
       "title": "문의하기",
       "intro": "문의 사항은 다음으로 연락해 주세요.",
-      "email": "contact@yourdomain.com",
-      "responseTime": "응답 시간: 24-48시간 이내"
+      "email": "contact@yourdomain.com"
     },
     "quickLinks": {
       "title": "빠른 링크",

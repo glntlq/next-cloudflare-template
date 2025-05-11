@@ -34,8 +34,7 @@
     "contact": {
       "title": "Контакты",
       "intro": "По вопросам обращайтесь:",
-      "email": "contact@yourdomain.com",
-      "responseTime": "Время ответа: В течение 24-48 часов"
+      "email": "contact@yourdomain.com"
     },
     "quickLinks": {
       "title": "Быстрые ссылки",

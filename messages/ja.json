@@ -34,8 +34,7 @@
     "contact": {
       "title": "お問い合わせ",
       "intro": "お問い合わせは以下まで：",
-      "email": "contact@yourdomain.com",
-      "responseTime": "返信時間：24-48時間以内"
+      "email": "contact@yourdomain.com"
     },
     "quickLinks": {
       "title": "クイックリンク",

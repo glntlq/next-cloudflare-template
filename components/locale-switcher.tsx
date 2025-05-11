@@ -5,7 +5,9 @@ import { useParams } from 'next/navigation'
 import { Locale, useLocale } from 'next-intl'
 import { startTransition } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { useIsMobile } from '@/hooks/use-mobile'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
 
@@ -16,6 +18,7 @@ type Props = {
 export function LocaleSwitcherSelect({ defaultValue }: Props) {
   const router = useRouter()
   const pathname = usePathname()
+  const isMobile = useIsMobile()
   const params = useParams()
 
   function onLocaleSelect(locale: Locale) {
@@ -33,7 +36,7 @@ export function LocaleSwitcherSelect({ defaultValue }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Globe className="size-5" />
+        {isMobile ? <Globe className="size-5 md:size-6" /> : <Button variant="outline">{defaultValue}</Button>}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map((locale) => (

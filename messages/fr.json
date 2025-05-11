@@ -34,8 +34,7 @@
     "contact": {
       "title": "Contact",
       "intro": "Pour les demandes, veuillez contacter :",
-      "email": "contact@yourdomain.com",
-      "responseTime": "Délai de réponse : Dans les 24-48 heures"
+      "email": "contact@yourdomain.com"
     },
     "quickLinks": {
       "title": "Liens rapides",
