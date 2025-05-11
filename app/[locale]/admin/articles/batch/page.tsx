@@ -47,7 +47,7 @@ export default function BatchArticlesPage() {
     }
 
     setIsGenerating(true)
-    const batchSize = 3
+    const batchSize = 8
     const results = []
 
     try {
@@ -83,7 +83,6 @@ export default function BatchArticlesPage() {
         results.push(...batchResults)
       }
 
-      // Add selected property to each successful article
       const articlesWithSelection = results.map((item) => ({
         ...item,
         selected: item.status === 'success'
