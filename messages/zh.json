@@ -23,15 +23,8 @@
       "description": "{brandName} 的首页"
     }
   },
-  "AboutPage": {
-    "title": "关于本站",
-    "home": "前往首页",
-    "description": "这是我们网站的描述",
-    "settings": "设置"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "继续您的旅程",
       "triggerText": "登录"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "首页",
-    "about": "关于",
     "blogs": "博客",
     "navigation": "站点导航",
-    "navigationDescription": "访问我们网站的主要部分",
-    "account": "账户"
+    "navigationDescription": "访问我们网站的主要部分"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -84,7 +75,7 @@
   },
   "blogs": {
     "pageTitle": "博客文章",
-    "metaTitle": "{brandName} 博客 | 洞察与文章",
+    "metaTitle": "洞察与文章",
     "metaDescription": "探索我们关于美容分析、人工智能技术和面部美学的最新文章。发现专家见解、技巧和人工智能驱动的美容评估世界中的趋势。",
     "noArticles": "没有可用的文章",
     "publishedAt": "发布于 {date}"

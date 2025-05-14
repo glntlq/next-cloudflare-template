@@ -16,9 +16,8 @@ export default async function Header({ className }: { className?: string }) {
     'hover:bg-secondary flex items-center rounded-md px-3 py-3 text-lg font-medium transition-colors'
 
   const navLinks = [
-    { href: '/', label: 'home' },
-    { href: '/blogs', label: 'blogs' },
-    { href: '/about', label: 'about' }
+    { href: '/', label: t('home') },
+    { href: '/blogs', label: t('blogs') }
   ]
 
   return (
@@ -34,7 +33,7 @@ export default async function Header({ className }: { className?: string }) {
           <div className="ml-12 flex space-x-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className={pcLinkStyle}>
-                {t(link.label as any)}
+                {link.label}
                 <span className="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
@@ -64,7 +63,7 @@ export default async function Header({ className }: { className?: string }) {
                 <nav className="space-y-1">
                   {navLinks.map((link) => (
                     <Link key={link.href} href={link.href} className={mobileLinkStyle}>
-                      {t(link.label as any)}
+                      {link.label}
                     </Link>
                   ))}
                 </nav>

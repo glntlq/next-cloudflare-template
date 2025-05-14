@@ -7,15 +7,8 @@
       "description": "Bienvenido a la página de inicio de {brandName}"
     }
   },
-  "AboutPage": {
-    "title": "Acerca de este sitio",
-    "home": "Ir a la página de inicio",
-    "description": "Esta es una descripción de nuestro sitio web.",
-    "settings": "Ajustes"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "Inicia sesión para continuar tu viaje",
       "triggerText": "Iniciar sesión"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "Inicio",
-    "about": "Acerca de",
     "blogs": "Blogs",
     "navigation": "Navegación del sitio",
-    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web",
-    "account": "Cuenta"
+    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "Publicaciones del blog",
-    "metaTitle": "Perspectivas y artículos | {brandName} Blog",
+    "metaTitle": "Perspectivas y artículos",
     "metaDescription": "Explora nuestros últimos artículos sobre análisis de belleza, tecnología de inteligencia artificial y estética facial. Descubre perspectivas expertas, consejos y tendencias en el mundo de la evaluación de belleza impulsada por IA.",
     "noArticles": "No hay artículos disponibles",
     "publishedAt": "Publicado en {date}"

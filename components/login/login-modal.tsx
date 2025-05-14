@@ -30,6 +30,7 @@ export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false)
   const session = useSession()
   const t = useTranslations('login')
+  const site = useTranslations('siteInfo')
   const isMobile = useIsMobile()
 
   if (session.status === 'loading') return null
@@ -106,7 +107,7 @@ export default function LoginModal() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-bold">{t('modal.title')}</DialogTitle>
+          <DialogTitle className="text-center text-2xl font-bold">{site('brandName')}</DialogTitle>
           <DialogDescription className="text-center">{t('modal.description')}</DialogDescription>
         </DialogHeader>
         <LoginForm onSuccess={() => setIsOpen(false)} />

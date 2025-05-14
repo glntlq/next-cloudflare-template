@@ -2,8 +2,6 @@
   "headers": {
     "blogs": "Blogs",
     "home": "Home",
-    "about": "About",
-    "account": "Account",
     "navigation": "Site Navigation",
     "navigationDescription": "Access the main sections of our website"
   },
@@ -11,7 +9,7 @@
     "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
-      "title": "Next Template - Think, Write, Code",
+      "title": "Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
     }
   },
@@ -35,7 +33,6 @@
     "signOut": "Sign Out",
     "login": "Login",
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "Sign in to continue your journey",
       "triggerText": "Login"
     },
@@ -70,12 +67,6 @@
       "description": "Welcome to the home page of {brandName}"
     }
   },
-  "AboutPage": {
-    "title": "About this site",
-    "home": "Go to the home page",
-    "settings": "Settings",
-    "description": "This is a description of our website"
-  },
   "blog": {
     "postNotFound": "Post Not Found",
     "postNotFoundDescription": "The blog post you're looking for could not be found.",
@@ -83,7 +74,7 @@
   },
   "blogs": {
     "pageTitle": "Blog Posts",
-    "metaTitle": "Insights & Articles | {brandName} Blog",
+    "metaTitle": "Insights & Articles",
     "metaDescription": "Explore our latest articles on beauty analysis, AI technology, and facial aesthetics. Discover expert insights, tips, and trends in the world of AI-powered beauty assessment.",
     "noArticles": "No articles available",
     "publishedAt": "Published at {date}"

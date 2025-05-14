@@ -7,15 +7,8 @@
       "description": "{brandName} のホームページへようこそ"
     }
   },
-  "AboutPage": {
-    "title": "このサイトについて",
-    "home": "ホームページへ移動する",
-    "description": "これは私たちのウェブサイトについての説明です",
-    "settings": "設定"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "続行するにはログインしてください",
       "triggerText": "ログイン"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "ホーム",
-    "about": "について",
     "blogs": "ブログ",
     "navigation": "サイトのナビゲーション",
-    "navigationDescription": "ウェブサイトの主要セクションにアクセスする",
-    "account": "アカウント"
+    "navigationDescription": "ウェブサイトの主要セクションにアクセスする"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "ブログ記事",
-    "metaTitle": "{brandName} ブログ | 洞察と記事",
+    "metaTitle": "洞察と記事",
     "metaDescription": "美容分析、AI技術、顔貌分析の最新記事をご覧ください。AIによる美容評価の世界における専門家の洞察、ヒント、トレンドをご紹介します。",
     "noArticles": "記事がありません",
     "publishedAt": "{date} に公開"

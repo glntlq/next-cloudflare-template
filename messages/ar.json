@@ -7,15 +7,8 @@
       "description": "مرحبا بك في الصفحة الرئيسية لـ {brandName}"
     }
   },
-  "AboutPage": {
-    "title": "معلومات عن هذا الموقع",
-    "home": "الانتقال إلى الصفحة الرئيسية",
-    "description": "هذا وصف لموقعنا على الإنترنت.",
-    "settings": "الإعدادات"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "تسجيل الدخول للاستمرار",
       "triggerText": "تسجيل الدخول"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "الصفحة الرئيسية",
-    "about": "نبذة",
     "blogs": "المدونات",
     "navigation": "تنقل الموقع",
-    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت",
-    "account": "حساب"
+    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "مشاركات المدونة",
-    "metaTitle": "رؤى ومقالات | {brandName} مدونة",
+    "metaTitle": "رؤى ومقالات",
     "metaDescription": "استكشف أحدث مقالاتنا حول تحليل الجمال، وتكنولوجيا الذكاء الاصطناعي، وجماليات الوجه. اكتشف رؤى الخبراء، والنصائح، والاتجاهات في عالم تقييم الجمال المدعوم بالذكاء الاصطناعي.",
     "noArticles": "لا تتوفر مقالات",
     "publishedAt": "نُشر في {date}"

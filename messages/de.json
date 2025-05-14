@@ -7,15 +7,8 @@
       "description": "Willkommen auf der Startseite von {brandName}"
     }
   },
-  "AboutPage": {
-    "title": "Über diese Website",
-    "home": "Zur Startseite gehen",
-    "description": "Dies ist eine Beschreibung unserer Website.",
-    "settings": "Einstellungen"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "Melden Sie sich an, um fortzufahren",
       "triggerText": "Anmelden"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "Startseite",
-    "about": "Über",
     "blogs": "Blogs",
     "navigation": "Site-Navigation",
-    "navigationDescription": "Greifen Sie auf die Hauptabschnitte unserer Website zu",
-    "account": "Konto"
+    "navigationDescription": "Greifen Sie auf die Hauptabschnitte unserer Website zu"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "Blog-Beiträge",
-    "metaTitle": "Einblicke und Artikel | {brandName} Blog",
+    "metaTitle": "Einblicke und Artikel",
     "metaDescription": "Entdecken Sie unsere neuesten Artikel über Beauty-Analyse, KI-Technologie und Gesichtsaesthetik. Erhalten Sie Experten-Einblicke, Tipps und Trends aus der Welt der KI-gestützten Schönheitsbewertung.",
     "noArticles": "Keine Artikel verfügbar",
     "publishedAt": "Veröffentlicht am {date}"

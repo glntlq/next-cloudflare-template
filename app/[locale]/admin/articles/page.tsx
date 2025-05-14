@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 
-import { getAllArticles } from '@/actions/ai-content'
+import { getPaginatedArticles } from '@/actions/ai-content'
+import { BlogPagination } from '@/components/blog/blog-pagination'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
@@ -9,8 +10,16 @@ import { formatDate } from '@/lib/utils'
 
 export const runtime = 'edge'
 
-export default async function ArticlesPage() {
-  const articles = await getAllArticles()
+export default async function ArticlesPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const { page } = await searchParams
+  const currentPage = page ? parseInt(page) : 1
+  const pageSize = 10
+
+  const { articles, pagination } = await getPaginatedArticles({
+    page: currentPage,
+    pageSize
+  })
+
   const t = await getTranslations('admin.list')
 
   return (
@@ -95,6 +104,10 @@ export default async function ArticlesPage() {
             )}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-6">
+        <BlogPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
       </div>
     </>
   )

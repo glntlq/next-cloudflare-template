@@ -35,26 +35,29 @@ export function BlogPagination({ currentPage, totalPages }: BlogPaginationProps)
   const getPageNumbers = () => {
     const pages = []
 
-    // 始终显示第一页
     pages.push(1)
 
-    // 当前页附近的页码
-    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
-      if (i === 2 && currentPage > 3) {
-        pages.push('ellipsis-start')
-      } else if (i === totalPages - 1 && currentPage < totalPages - 2) {
-        pages.push('ellipsis-end')
-      } else {
-        pages.push(i)
-      }
+    const startPage = Math.max(2, currentPage - 1)
+    const endPage = Math.min(totalPages - 1, currentPage + 1)
+
+    if (startPage > 2) {
+      pages.push('ellipsis-start')
     }
 
-    // 始终显示最后一页（如果有多页）
+    // Add pages around current page
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i)
+    }
+
+    if (endPage < totalPages - 1) {
+      pages.push('ellipsis-end')
+    }
+
     if (totalPages > 1) {
       pages.push(totalPages)
     }
 
-    // 去重
+    // Remove duplicates
     return Array.from(new Set(pages))
   }
 

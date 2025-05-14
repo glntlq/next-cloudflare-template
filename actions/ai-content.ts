@@ -1,6 +1,6 @@
 'use server'
 
-import { desc, eq } from 'drizzle-orm'
+import { count, desc, eq } from 'drizzle-orm'
 
 import { locales } from '@/i18n/routing'
 import { createAI } from '@/lib/ai'
@@ -133,6 +133,45 @@ export async function saveGeneratedArticle(
   }
 
   await database.insert(posts).values(postData)
+}
+
+export async function getPaginatedArticles({
+  locale,
+  page = 1,
+  pageSize = 10
+}: {
+  locale?: string
+  page?: number
+  pageSize?: number
+}) {
+  const database = createDb()
+
+  const currentPage = Math.max(1, page)
+  const itemsPerPage = Math.max(1, pageSize)
+  const offset = (currentPage - 1) * itemsPerPage
+
+  const baseQuery = database.select().from(posts).orderBy(desc(posts.publishedAt))
+
+  const query = locale ? baseQuery.where(eq(posts.locale, locale)) : baseQuery
+
+  const countQuery = locale
+    ? database.select({ count: count() }).from(posts).where(eq(posts.locale, locale))
+    : database.select({ count: count() }).from(posts)
+
+  const [articles, countResult] = await Promise.all([query.limit(itemsPerPage).offset(offset), countQuery])
+
+  const totalItems = countResult[0]?.count || 0
+  const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+  return {
+    articles,
+    pagination: {
+      currentPage,
+      pageSize: itemsPerPage,
+      totalItems,
+      totalPages
+    }
+  }
 }
 
 export async function getAllArticles(locale?: string) {

@@ -7,15 +7,8 @@
       "description": "{brandName} के होम पेज में आपका स्वागत है"
     }
   },
-  "AboutPage": {
-    "title": "इस साइट के बारे में",
-    "home": "होम पेज पर जाएं",
-    "description": "यह हमारी वेबसाइट का विवरण है।",
-    "settings": "सेटिंग्स"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "जारी रखने के लिए साइन इन करें",
       "triggerText": "साइन इन करें"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "होम",
-    "about": "के बारे में",
     "blogs": "ब्लॉग",
     "navigation": "साइट नेविगेशन",
-    "navigationDescription": "हमारी वेबसाइट के मुख्य अनुभागों तक पहुंचें",
-    "account": "क्रिया विवरण"
+    "navigationDescription": "हमारी वेबसाइट के मुख्य अनुभागों तक पहुंचें"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "ब्लॉग पोस्ट",
-    "metaTitle": "अंतर्दृष्टि और लेख | {brandName} ब्लॉग",
+    "metaTitle": "अंतर्दृष्टि और लेख",
     "metaDescription": "सौंदर्य विश्लेषण, आर्टिफ़िशियल इंटेलिजेंस तकनीक और चेहरे की सौंदर्यशास्त्र पर हमारे नवीनतम लेखों का अन्वेषण करें। AI-संचालित सौंदर्य मूल्यांकन की दुनिया में विशेषज्ञ अंतर्दृष्टि, सुझाव और रुझानों की खोज करें।",
     "noArticles": "कोई लेख उपलब्ध नहीं",
     "publishedAt": "{date} को प्रकाशित किया गया"

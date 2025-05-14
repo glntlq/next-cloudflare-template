@@ -7,15 +7,8 @@
       "description": "Benvenuto sulla pagina di casa di {brandName}"
     }
   },
-  "AboutPage": {
-    "title": "A proposito di questo sito",
-    "home": "Vai alla pagina di casa",
-    "description": "Questa è una descrizione del nostro sito web.",
-    "settings": "Impostazioni"
-  },
   "login": {
     "modal": {
-      "title": "Welcome to Next Template",
       "description": "Accedi per continuare il tuo viaggio",
       "triggerText": "Accedi"
     },
@@ -63,11 +56,9 @@
   },
   "headers": {
     "home": "Home",
-    "about": "Informazioni",
     "blogs": "Blogs",
     "navigation": "Navigazione del sito",
-    "navigationDescription": "Accedi alle sezioni principali del nostro sito web",
-    "account": "Conto"
+    "navigationDescription": "Accedi alle sezioni principali del nostro sito web"
   },
   "siteInfo": {
     "brandName": "Next Template",
@@ -220,7 +211,7 @@
   },
   "blogs": {
     "pageTitle": "Post di blog",
-    "metaTitle": "Informazioni e articoli | {brandName} Blog",
+    "metaTitle": "Approfondimenti e articoli",
     "metaDescription": "Esplora i nostri ultimi articoli sull'analisi della bellezza, la tecnologia dell'intelligenza artificiale e l'estetica facciale. Scopri informazioni approfondite di esperti, consigli e tendenze nel mondo della valutazione della bellezza basata sull'intelligenza artificiale.",
     "noArticles": "Nessun articolo disponibile",
     "publishedAt": "Pubblicato il {date}"

@@ -17,7 +17,6 @@ export async function generateMetadata({ params }: PostSlugPageProps) {
   const { slug } = await params
   const article = await getArticleBySlug(slug)
   const t = await getTranslations('blog')
-  const siteInfoT = await getTranslations('siteInfo')
 
   if (!article) {
     return {
@@ -27,7 +26,7 @@ export async function generateMetadata({ params }: PostSlugPageProps) {
   }
 
   return {
-    title: `${article.title} | ${siteInfoT('brandName')}`,
+    title: article.title,
     description: article.excerpt
   }
 }
