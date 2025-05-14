@@ -1,11 +1,7 @@
 {
   "HomePage": {
     "title": "안녕하세요",
-    "about": "정보 페이지로 이동",
-    "meta": {
-      "title": "홈 | {brandName}",
-      "description": "{brandName} 홈페이지에 오신 것을 환영합니다."
-    }
+    "about": "정보 페이지로 이동"
   },
   "login": {
     "modal": {
@@ -45,7 +41,6 @@
     "close": "닫기",
     "loading": "로딩중...",
     "cancel": "취소",
-    "freeUsage": "{used}/{total} 무료 크레딧",
     "save": "저장",
     "edit": "편집",
     "delete": "삭제",

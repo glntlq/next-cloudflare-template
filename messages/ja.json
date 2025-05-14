@@ -1,11 +1,7 @@
 {
   "HomePage": {
     "title": "こんにちは",
-    "about": "詳細情報ページへ移動する",
-    "meta": {
-      "title": "ホーム | {brandName}",
-      "description": "{brandName} のホームページへようこそ"
-    }
+    "about": "詳細情報ページへ移動する"
   },
   "login": {
     "modal": {
@@ -45,7 +41,6 @@
     "close": "閉じる",
     "loading": "読み込み中...",
     "cancel": "キャンセル",
-    "freeUsage": "{used}/{total} 無料クレジット",
     "save": "保存",
     "edit": "編集",
     "delete": "削除",

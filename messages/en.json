@@ -14,7 +14,7 @@
     }
   },
   "footer": {
-    "description": "Empowering conversations with AI. Experience the future of communication with LinkAI.",
+    "description": "Empowering conversations with AI. Experience the future of communication with Next Template.",
     "contact": {
       "title": "Contact",
       "intro": "For inquiries, please contact:",
@@ -28,6 +28,10 @@
       "subscriptionTerms": "Subscription Terms"
     },
     "copyright": "© 2024 Cozyai LLC. All rights reserved."
+  },
+  "HomePage": {
+    "title": "Hello",
+    "about": "Go to the about page"
   },
   "login": {
     "signOut": "Sign Out",
@@ -48,7 +52,6 @@
     "loading": "Loading...",
     "cancel": "Cancel",
     "close": "Close",
-    "freeUsage": "{used}/{total} Free Credits",
     "previous": "Previous",
     "next": "Next",
     "save": "Save",
@@ -58,14 +61,6 @@
     "morePages": "View More Pages",
     "language": "Language",
     "selectLanguage": "Select Language"
-  },
-  "HomePage": {
-    "title": "Hello",
-    "about": "Go to the about page",
-    "meta": {
-      "title": "Home | {brandName}",
-      "description": "Welcome to the home page of {brandName}"
-    }
   },
   "blog": {
     "postNotFound": "Post Not Found",

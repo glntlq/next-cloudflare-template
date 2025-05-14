@@ -6,7 +6,6 @@
     "close": "关闭",
     "loading": "正在加载...",
     "cancel": "取消",
-    "freeUsage": "{used}/{total} 免费积分",
     "save": "保存",
     "edit": "编辑",
     "delete": "删除",
@@ -17,11 +16,7 @@
   },
   "HomePage": {
     "title": "你好",
-    "about": "前往关于页面",
-    "meta": {
-      "title": "首页 | {brandName}",
-      "description": "{brandName} 的首页"
-    }
+    "about": "前往关于页面"
   },
   "login": {
     "modal": {

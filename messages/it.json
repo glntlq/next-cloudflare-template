@@ -1,11 +1,7 @@
 {
   "HomePage": {
     "title": "Ciao",
-    "about": "Vai alla pagina delle informazioni",
-    "meta": {
-      "title": "Home | {brandName}",
-      "description": "Benvenuto sulla pagina di casa di {brandName}"
-    }
+    "about": "Vai alla pagina delle informazioni"
   },
   "login": {
     "modal": {
@@ -45,7 +41,6 @@
     "close": "Chiudi",
     "loading": "Caricamento...",
     "cancel": "Annulla",
-    "freeUsage": "{used}/{total} Crediti gratuiti",
     "save": "Salva",
     "edit": "Modifica",
     "delete": "Elimina",

@@ -1,11 +1,7 @@
 {
   "HomePage": {
     "title": "नमस्ते",
-    "about": "जानकारी पृष्ठ पर जाएं",
-    "meta": {
-      "title": "होम | {brandName}",
-      "description": "{brandName} के होम पेज में आपका स्वागत है"
-    }
+    "about": "जानकारी पृष्ठ पर जाएं"
   },
   "login": {
     "modal": {
@@ -45,7 +41,6 @@
     "close": "बंद कर दें",
     "loading": "लोडिंग...",
     "cancel": "रद्द करें",
-    "freeUsage": "{used}/{total} नि:शुल्क क्रेडिट",
     "save": "सहेजें",
     "edit": "संपादित करें",
     "delete": "हटाएं",

@@ -1,11 +1,7 @@
 {
   "HomePage": {
     "title": "Hola",
-    "about": "Ir a la página de información",
-    "meta": {
-      "title": "Inicio | {brandName}",
-      "description": "Bienvenido a la página de inicio de {brandName}"
-    }
+    "about": "Ir a la página de información"
   },
   "login": {
     "modal": {
@@ -45,7 +41,6 @@
     "close": "Cerrar",
     "loading": "Cargando...",
     "cancel": "Cancelar",
-    "freeUsage": "{used}/{total} Créditos gratuitos",
     "save": "Guardar",
     "edit": "Editar",
     "delete": "Eliminar",
