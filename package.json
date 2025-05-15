@@ -16,7 +16,7 @@
     "db:migrate-local": "tsx scripts/migrate.ts local",
     "db:migrate-remote": "tsx scripts/migrate.ts remote",
     "db:seed": "wrangler dev scripts/seed.ts",
-    "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
+    "db:studio:local": "tsx scripts/db-studio-local.ts",
     "db:studio:remote": "drizzle-kit studio",
     "i18n:translate": "tsx scripts/18n/cli.ts --mode=missing",
     "i18n:delete": "tsx scripts/18n/cli.ts --d",
