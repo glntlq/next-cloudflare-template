@@ -24,6 +24,9 @@
             "migrations_dir": "migrations"
         }
     ],
+    "ai": {
+        "binding": "AI"
+    },
     "r2_buckets": [
         {
             "bucket_name": "demo",
@@ -56,8 +59,5 @@
             "binding": "WORKER_SELF_REFERENCE",
             "service": "next-cloudflare-template"
         }
-    ],
-    "ai": {
-        "binding": "AI"
-    }
+    ]
 }
