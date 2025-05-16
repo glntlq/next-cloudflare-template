@@ -15,16 +15,6 @@ export async function enqueueDurableObjectTask(taskData: any) {
     const queueStub = queue?.get(queueId)
 
     // Send a request to the Durable Object
-    const response = await queueStub?.fetch('https://queue.internal/enqueue', {
-      method: 'POST',
-      body: JSON.stringify(taskData)
-    })
-    if (response?.ok) {
-      const data = await response?.json()
-      return data
-    } else {
-      const data = await response?.json()
-      throw new Error(`Failed to enqueue task: ${JSON.stringify(data)}`)
-    }
+    await queueStub?.revalidate(taskData)
   }
 }
