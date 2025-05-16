@@ -2,11 +2,8 @@ import 'dotenv/config'
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import Cloudflare from 'cloudflare'
 
 const PROJECT_NAME = process.env.PROJECT_NAME || 'next-template'
-const CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN
-const CF_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID!
 
 const environments = [
   'AUTH_SECRET',
@@ -19,17 +16,6 @@ const environments = [
   'NEXT_PUBLIC_ADMIN_ID'
 ]
 
-const client = new Cloudflare({
-  apiKey: CF_API_TOKEN
-})
-
-export const getWorkers = async () => {
-  const workerInfo = await client.workers.scripts.get(PROJECT_NAME, {
-    account_id: CF_ACCOUNT_ID
-  })
-
-  return workerInfo
-}
 /**
  * 验证必要的环境变量
  */
@@ -184,7 +170,6 @@ const main = async () => {
     validateEnvironment()
     setupEnvFile()
     migrateDatabase()
-    await getWorkers()
     await pushWorkerSecret()
     deployWorkers()
 
