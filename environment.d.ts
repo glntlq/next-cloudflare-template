@@ -4,11 +4,3 @@ namespace NodeJS {
     NEXT_PUBLIC_ADMIN_ID: string
   }
 }
-
-interface CloudflareEnv {
-  DB: D1Database
-  KV: KVNamespace
-  AI: Ai
-}
-
-type Env = CloudflareEnv

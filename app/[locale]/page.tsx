@@ -8,9 +8,6 @@ export default async function Home() {
     <div>
       <h1>{t('title')}</h1>
       <SeverLessTestComponent />
-      <SeverLessTestComponent />
-      <SeverLessTestComponent />
-      <SeverLessTestComponent />
     </div>
   )
 }
