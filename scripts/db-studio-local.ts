@@ -12,7 +12,6 @@ function findSqliteFile(): string | null {
   }
 
   try {
-    // Recursively search for .sqlite files
     function findFile(dir: string): string | null {
       const files = readdirSync(dir, { withFileTypes: true })
 
