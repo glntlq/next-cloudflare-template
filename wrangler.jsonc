@@ -1,6 +1,6 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "next-cloudflare-template",
+    "name": "cloudflare-template",
     "main": ".open-next/worker.js",
     "compatibility_date": "2025-04-22",
     "compatibility_flags": [
@@ -57,7 +57,7 @@
     "services": [
         {
             "binding": "WORKER_SELF_REFERENCE",
-            "service": "next-cloudflare-template"
+            "service": "cloudflare-template"
         }
     ]
 }
