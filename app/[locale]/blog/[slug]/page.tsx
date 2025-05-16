@@ -11,7 +11,7 @@ interface PostSlugPageProps {
   }>
 }
 
-export const revalidate = 3600
+export const revalidate = 1
 
 export async function generateMetadata({ params }: PostSlugPageProps) {
   const { slug } = await params
