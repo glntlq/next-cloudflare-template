@@ -25,7 +25,7 @@ export const SeverLessTestComponent = () => {
           ServerLessActiveTimesTest(Number(value))
         }}
       >
-        {'test'}
+        {'test1'}
       </Button>
       <Button
         onClick={() => {
@@ -35,7 +35,7 @@ export const SeverLessTestComponent = () => {
           })
         }}
       >
-        {'queue'}
+        {'queue1'}
       </Button>
     </>
   )
