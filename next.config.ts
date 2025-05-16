@@ -6,11 +6,6 @@ initOpenNextCloudflareForDev()
 
 const nextConfig: NextConfig = {
   devIndicators: false,
-  useCache: true,
-  reactCompiler: true,
-  ppr: true,
-  typedRoutes: false,
-  dynamicIO: false,
   experimental: {
     staleTimes: {
       dynamic: 3600,
