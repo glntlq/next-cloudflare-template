@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { ServerLessActiveTimesTest } from '@/actions/test'
+import { enqueueDurableObjectTask, ServerLessActiveTimesTest } from '@/actions/test'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
@@ -26,6 +26,16 @@ export const SeverLessTestComponent = () => {
         }}
       >
         {'test'}
+      </Button>
+      <Button
+        onClick={() => {
+          enqueueDurableObjectTask({
+            a: 1,
+            b: 2
+          })
+        }}
+      >
+        {'queue'}
       </Button>
     </>
   )
