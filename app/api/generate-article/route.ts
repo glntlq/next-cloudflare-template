@@ -12,7 +12,7 @@ interface RequestBody {
 
 export async function POST(request: NextRequest) {
   const u = await auth()
-  if (u?.user?.id !== process.env.NEXT_PUBLIC_ADMIN_ID) {
+  if (!process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(u?.user?.id ?? '')) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   try {
