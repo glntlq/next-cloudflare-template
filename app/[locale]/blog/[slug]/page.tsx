@@ -5,13 +5,13 @@ import { getArticleBySlug } from '@/actions/ai-content'
 import BlogBody from '@/components/blog/blog-body'
 import { formatDate } from '@/lib/utils'
 
-export const runtime = 'edge'
-
 interface PostSlugPageProps {
   params: Promise<{
     slug: string
   }>
 }
+
+export const revalidate = 3600
 
 export async function generateMetadata({ params }: PostSlugPageProps) {
   const { slug } = await params

@@ -15,8 +15,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
 
-export const runtime = 'edge'
-
 export default function NewArticlePage() {
   const router = useRouter()
   const t = useTranslations('admin.new')

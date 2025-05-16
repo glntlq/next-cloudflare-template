@@ -3,8 +3,6 @@ import { ReactNode } from 'react'
 import { redirect } from '@/i18n/navigation'
 import { auth } from '@/lib/auth'
 
-export const runtime = 'edge'
-
 export default async function AdminLayout({
   children,
   params

@@ -1,10 +1,8 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev'
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 import { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
-if (process.env.NODE_ENV === 'development') {
-  setupDevPlatform()
-}
+initOpenNextCloudflareForDev()
 
 const nextConfig: NextConfig = {
   devIndicators: false

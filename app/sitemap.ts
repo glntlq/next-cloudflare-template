@@ -5,8 +5,6 @@ import { locales } from '@/i18n/routing'
 
 import type { MetadataRoute } from 'next'
 
-export const runtime = 'edge'
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   unstable_noStore()
 

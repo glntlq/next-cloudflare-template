@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { generateArticle } from '@/actions/ai-content'
 import { auth } from '@/lib/auth'
 
-export const runtime = 'edge'
-
 interface RequestBody {
   keyword: string
   locale?: string

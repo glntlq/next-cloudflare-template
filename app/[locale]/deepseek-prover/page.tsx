@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-no-literals */
 import { DeepSeekProver } from '@/components/deepseek-prover/deepseek-prover'
 
-export const runtime = 'edge'
-
 export default function DeepSeekProverPage() {
   return (
     <div className="container mx-auto py-8">

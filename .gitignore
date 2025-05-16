@@ -9,6 +9,8 @@ messages/*.d.json.ts
 # testing
 /coverage
 
+.open-next
+
 # next.js
 /.next/
 /out/

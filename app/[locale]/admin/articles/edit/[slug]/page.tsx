@@ -23,8 +23,6 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
 
-export const runtime = 'edge'
-
 export default function EditArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const router = useRouter()
   const t = useTranslations('admin.edit')

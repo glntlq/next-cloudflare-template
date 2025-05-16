@@ -8,8 +8,6 @@ import { Link } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
 import { formatDate } from '@/lib/utils'
 
-export const runtime = 'edge'
-
 export default async function ArticlesPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams
   const currentPage = page ? parseInt(page) : 1

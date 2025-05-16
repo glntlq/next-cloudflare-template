@@ -1,5 +1,3 @@
-import { getRequestContext } from '@cloudflare/next-on-pages'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
-export const runtime = 'edge'
-
-export const createKV = () => getRequestContext().env.KV
+export const createKV = () => getCloudflareContext().env.KV

@@ -6,8 +6,6 @@ import { BlogPagination } from '@/components/blog/blog-pagination'
 import { Link } from '@/i18n/navigation'
 import { formatDate } from '@/lib/utils'
 
-export const runtime = 'edge'
-
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('blogs')
 

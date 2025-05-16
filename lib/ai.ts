@@ -1,5 +1,3 @@
-import { getRequestContext } from '@cloudflare/next-on-pages'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
-export const runtime = 'edge'
-
-export const createAI = () => getRequestContext().env.AI
+export const createAI = () => getCloudflareContext().env.AI

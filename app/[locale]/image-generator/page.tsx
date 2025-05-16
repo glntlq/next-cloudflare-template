@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-no-literals */
 import { ImageGenerator } from '@/components/image-generator/image-generator'
 
-export const runtime = 'edge'
-
 export default function ImageGeneratorPage() {
   return (
     <div className="container mx-auto py-8">
