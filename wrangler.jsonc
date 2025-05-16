@@ -8,9 +8,9 @@
         "global_fetch_strictly_public"
     ],
     "observability": {
-      "logs": {
-        "enabled": true
-      }
+        "logs": {
+            "enabled": true
+        }
     },
     "assets": {
         "directory": ".open-next/assets",
@@ -28,6 +28,22 @@
         {
             "bucket_name": "demo",
             "binding": "NEXT_INC_CACHE_R2_BUCKET"
+        }
+    ],
+    "durable_objects": {
+        "bindings": [
+            {
+                "name": "NEXT_CACHE_DO_QUEUE",
+                "class_name": "DOQueueHandler"
+            }
+        ]
+    },
+    "migrations": [
+        {
+            "tag": "v1",
+            "new_sqlite_classes": [
+                "DOQueueHandler"
+            ]
         }
     ],
     "services": [
