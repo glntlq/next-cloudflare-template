@@ -20,6 +20,12 @@ export async function enqueueDurableObjectTask(taskData: any) {
       method: 'POST',
       body: JSON.stringify(taskData)
     })
-    return response?.ok
+    if (response?.ok) {
+      const data = await response?.json()
+      return data
+    } else {
+      const data = await response?.json()
+      throw new Error(`Failed to enqueue task: ${JSON.stringify(data)}`)
+    }
   }
 }
