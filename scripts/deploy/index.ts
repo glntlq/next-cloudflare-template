@@ -17,6 +17,7 @@ const environments = [
   'AUTH_GOOGLE_ID',
   'AUTH_GOOGLE_SECRET',
   'AUTH_RESEND_KEY',
+  'GMI_API_KEY',
   'NEXT_PUBLIC_BASE_URL',
   'NEXT_PUBLIC_ADMIN_ID'
 ]

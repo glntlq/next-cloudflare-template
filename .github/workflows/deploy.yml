@@ -39,6 +39,7 @@ jobs:
           AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
           AUTH_RESEND_KEY: ${{ secrets.AUTH_RESEND_KEY }}
           DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+          GMI_API_KEY: ${{ secrets.GMI_API_KEY }}
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
           NEXT_PUBLIC_ADMIN_ID: ${{ secrets.NEXT_PUBLIC_ADMIN_ID }}
 
