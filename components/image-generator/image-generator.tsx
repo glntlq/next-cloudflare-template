@@ -18,6 +18,7 @@ export function ImageGenerator({ className }: ImageGeneratorProps) {
   const [prompt, setPrompt] = useState<string>('')
   const [isGenerating, setIsGenerating] = useState<boolean>(false)
   const [generatedImage, setGeneratedImage] = useState<string | null>(null)
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleGenerateImage = async () => {
@@ -34,6 +35,9 @@ export function ImageGenerator({ className }: ImageGeneratorProps) {
 
       if (result.success && result.imageData) {
         setGeneratedImage(result.imageData)
+        if (result.imageUrl) {
+          setImageUrl(result.imageUrl)
+        }
       } else {
         setError(result.error || 'Failed to generate image')
       }
@@ -80,7 +84,21 @@ export function ImageGenerator({ className }: ImageGeneratorProps) {
           <div className="overflow-hidden rounded-md border">
             <figure className="mx-auto flex max-w-lg flex-col items-center">
               <img src={generatedImage} alt={prompt} className="h-auto w-full" />
-              <figcaption className="p-2 text-sm text-gray-500">{prompt}</figcaption>
+              <figcaption className="p-2 text-sm text-gray-500">
+                {prompt}
+                {imageUrl && (
+                  <div className="mt-1">
+                    <a
+                      href={imageUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      View stored image
+                    </a>
+                  </div>
+                )}
+              </figcaption>
             </figure>
           </div>
         </div>

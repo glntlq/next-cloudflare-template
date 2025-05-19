@@ -31,6 +31,10 @@
         {
             "bucket_name": "demo",
             "binding": "NEXT_INC_CACHE_R2_BUCKET"
+        },
+        {
+            "bucket_name": "static",
+            "binding": "static"
         }
     ],
     "durable_objects": {
