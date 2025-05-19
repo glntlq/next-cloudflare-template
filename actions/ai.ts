@@ -27,7 +27,11 @@ export async function cloudflareTextToImage(prompt: string) {
     const filename = `${Date.now()}-${sanitizedPrompt}.png`
 
     try {
-      await r2.put(filename, base64Image)
+      await r2.put(filename, base64Image, {
+        customMetadata: {
+          'Content-Type': 'image/png'
+        }
+      })
     } catch (r2Error) {
       console.error('Error storing image in R2:', r2Error)
       // Continue even if R2 storage fails, we can still return the base64 image
