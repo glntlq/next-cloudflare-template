@@ -20,15 +20,15 @@ export async function cloudflareTextToImage(prompt: string) {
       ? response.image
       : `data:image/png;base64,${response.image}`
 
-    const imageBuffer = new Uint8Array(Buffer.from(response.image))
+    const imageBuffer = new Uint8Array(Buffer.from(response.image, 'base64'))
 
     const sanitizedPrompt = prompt.replace(/[^a-zA-Z0-9]/g, '-').substring(0, 30)
     const filename = `${Date.now()}-${sanitizedPrompt}.png`
 
     try {
       await r2.put(filename, imageBuffer, {
-        customMetadata: {
-          'Content-Type': 'image/png'
+        httpMetadata: {
+          contentType: 'image/png'
         }
       })
     } catch (r2Error) {
