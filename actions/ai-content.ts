@@ -50,7 +50,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
   
   IMPORTANT: At the very end of your response, include two separate sections:
   1. "META_DESCRIPTION:" followed by a concise, SEO-friendly excerpt (130-140 characters max) that includes the main keyword naturally.
-  2. "URL_SLUG:" followed by an SEO-friendly URL slug for this article (lowercase, words separated by hyphens, no special characters).
+  2. "URL_SLUG:" followed by an SEO-friendly URL slug for this article in ENGLISH ONLY (lowercase, words separated by hyphens, no special characters), regardless of the article language.
   
   Produce original, accurate, and valuable content of at least 10,000 tokens. Output the article content, starting with the H1 title, followed by the meta description and URL slug sections at the end.`
 
