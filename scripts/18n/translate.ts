@@ -55,7 +55,7 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     mode = 'missing',
     targetLocales,
     keys = [],
-    model = '@cf/meta/llama-4-scout-17b-16e-instruct',
+    model = '@cf/google/gemma-3-12b-it',
     noTranslateKeys = []
   } = options
 
