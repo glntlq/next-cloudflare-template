@@ -192,7 +192,7 @@ export default function ArticlesPage() {
                       <img
                         src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
                         alt={article.title}
-                        className="h-16 w-24 rounded-md object-cover"
+                        className="h-[54px] w-24 rounded-md object-cover"
                       />
                     )}
                   </TableCell>
