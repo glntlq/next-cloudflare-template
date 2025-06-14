@@ -19,7 +19,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">文章管理</h1>
+        <h1 className="text-2xl font-bold">文章列表</h1>
         <div>
           <Link href="/admin/articles/batch">
             <Button>批量创建</Button>
@@ -36,6 +36,9 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
         <table className="divide-border min-w-full divide-y">
           <thead className="bg-muted/50">
             <tr>
+              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
+                封面图
+              </th>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 标题
               </th>
@@ -56,13 +59,22 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
           <tbody className="divide-border bg-card divide-y">
             {articles.length === 0 ? (
               <tr>
-                <td colSpan={5} className="text-muted-foreground px-6 py-4 text-center">
+                <td colSpan={6} className="text-muted-foreground px-6 py-4 text-center">
                   暂无文章
                 </td>
               </tr>
             ) : (
               articles.map((article) => (
                 <tr key={article.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {article.coverImageUrl && (
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
+                        alt={article.title}
+                        className="h-16 w-24 rounded-md object-cover"
+                      />
+                    )}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium">{article.title}</div>
                     <div className="text-muted-foreground truncate text-sm">{article.slug}</div>

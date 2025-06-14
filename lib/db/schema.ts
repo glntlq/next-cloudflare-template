@@ -88,6 +88,7 @@ export const posts = sqliteTable('posts', {
     .$defaultFn(() => crypto.randomUUID()),
   slug: text('slug').notNull().unique(),
   title: text('title').notNull(),
+  coverImageUrl: text('cover_image_url'),
   excerpt: text('excerpt').notNull(),
   content: text('content').notNull(),
   locale: text('locale').notNull().default('en'), // Add locale field with default 'en'

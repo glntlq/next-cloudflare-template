@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
@@ -12,7 +13,7 @@ interface PostSlugPageProps {
 }
 
 export const dynamicParams = true
-export const revalidate = 9600
+export const revalidate = false
 
 export async function generateMetadata({ params }: PostSlugPageProps) {
   const { slug } = await params
@@ -42,8 +43,19 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   }
 
   return (
-    <article className="prose prose-slate prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
-      <div className="mb-8 text-sm">{t('publishedAt', { date: formatDate(article.publishedAt) })}</div>
+    <article className="prose prose-violet prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
+      <div className="text-sm">{t('publishedAt', { date: formatDate(article.publishedAt) })}</div>
+      {article.coverImageUrl && (
+        <div className="relative mb-16 w-full" style={{ paddingBottom: '56.25%' }}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
+            alt={article.title}
+            layout="fill"
+            objectFit="cover"
+            className="absolute top-0 left-0 h-full w-full"
+          />
+        </div>
+      )}
       <BlogBody content={article.content} />
     </article>
   )

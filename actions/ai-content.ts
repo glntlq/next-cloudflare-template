@@ -2,6 +2,7 @@
 
 import { count, desc, eq } from 'drizzle-orm'
 
+import { cloudflareTextToImage } from '@/actions/ai'
 import { locales } from '@/i18n/routing'
 import { createAI } from '@/lib/ai'
 import { createDb } from '@/lib/db'
@@ -10,6 +11,67 @@ import { posts } from '@/lib/db/schema'
 interface ArticleGenerationParams {
   keyword: string
   locale?: string
+}
+
+export async function generateArticleCoverImage(articleContent: string, title: string) {
+  const cloudflareAI = createAI()
+
+  const promptGenerationResult = await cloudflareAI.run('@cf/meta/llama-4-scout-17b-16e-instruct', {
+    messages: [
+      {
+        role: 'system',
+        content: `You are an expert at creating Stable Diffusion prompts. 
+          
+          Create a prompt for a 16:9 cover image that represents the article's main theme.
+          
+          Guidelines for the prompt:
+          - Use a comma-separated list of keywords and short phrases
+          - Include visual elements, style descriptors, and mood indicators
+          - Focus on concrete visual elements rather than abstract concepts
+          - Include 5-20 keywords maximum
+          - DO NOT use full sentences or narrative descriptions
+          - DO NOT include negative prompts
+          - DO NOT include quotation marks or other formatting
+          
+          Example good prompts:
+          - mountain landscape, sunrise, golden light, fog, dramatic vista, 16k
+          - business meeting, professional setting, modern office, teamwork, corporate
+          - healthy food, fresh vegetables, vibrant colors, wooden table, soft lighting`
+      },
+      {
+        role: 'user',
+        content: `Create a Stable Diffusion prompt for a cover image for an article titled: "${title}". 
+          
+          Here's the beginning of the article content for context: "${articleContent.substring(0, 500)}..."
+          
+          Return ONLY the comma-separated keywords without any explanation or additional text.`
+      }
+    ],
+    stream: false
+  })
+
+  let imagePrompt = title
+  if (typeof promptGenerationResult === 'object') {
+    // Clean up the response to ensure it's just the keywords
+    const response = promptGenerationResult.response.trim()
+    // Remove any explanatory text, quotation marks, or other formatting
+    imagePrompt = response
+      .replace(/^["']|["']$/g, '') // Remove surrounding quotes
+      .replace(/^(prompt:|keywords:|here's a prompt:|stable diffusion prompt:)/i, '') // Remove prefixes
+      .replace(/\.$/g, '') // Remove trailing period
+      .trim()
+  }
+
+  // Generate the cover image using the created prompt
+  const imageResult = await cloudflareTextToImage({
+    prompt: imagePrompt,
+    ratio: '16:9',
+    style: 'cinematic', // Using cinematic style for professional-looking cover images
+    steps: 12, // Higher quality generation
+    negativePrompt: 'text, watermark, signature, blurry, distorted, low quality, disfigured'
+  })
+
+  return imageResult.imageUrl
 }
 
 function getLanguageNameFromLocale(localeCode: string): string {
@@ -94,10 +156,13 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
           .replace(/\-\-+/g, '-')
       }
 
+      const coverImage = await generateArticleCoverImage(content, extractedTitle)
+
       return {
         title: extractedTitle,
         slug,
         content,
+        coverImage,
         excerpt: excerpt || content.substring(0, 140) + '...',
         locale
       }
@@ -105,34 +170,6 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
   } catch (error) {
     throw error
   }
-}
-
-// 将生成的文章保存到数据库
-export async function saveGeneratedArticle(
-  article: {
-    title: string
-    slug: string
-    content: string
-    excerpt: string
-    locale?: string
-  },
-  publishImmediately = true
-) {
-  const database = createDb()
-
-  // 准备文章数据
-  const postData = {
-    slug: article.slug,
-    title: article.title,
-    excerpt: article.excerpt,
-    content: article.content,
-    locale: article.locale || 'en', // Add locale to database
-    publishedAt: publishImmediately ? new Date() : undefined,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }
-
-  await database.insert(posts).values(postData)
 }
 
 export async function getPaginatedArticles({
@@ -222,6 +259,36 @@ export async function deleteArticle(slug: string) {
   return { success: true }
 }
 
+// 将生成的文章保存到数据库
+export async function saveGeneratedArticle(
+  article: {
+    title: string
+    slug: string
+    content: string
+    excerpt: string
+    locale?: string
+    coverImage?: string
+  },
+  publishImmediately = true
+) {
+  const database = createDb()
+
+  // 准备文章数据
+  const postData = {
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    content: article.content,
+    locale: article.locale || 'en',
+    coverImage: article.coverImage,
+    publishedAt: publishImmediately ? new Date() : undefined,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+
+  await database.insert(posts).values(postData)
+}
+
 export async function saveBatchArticles(
   articles: Array<{
     title: string
@@ -229,6 +296,7 @@ export async function saveBatchArticles(
     content: string
     excerpt: string
     locale?: string
+    coverImage?: string
     selected?: boolean
   }>,
   publishImmediately = true
@@ -250,6 +318,7 @@ export async function saveBatchArticles(
           excerpt: article.excerpt,
           content: article.content,
           locale: article.locale || 'en',
+          coverImage: article.coverImage,
           publishedAt: publishImmediately ? new Date() : undefined,
           createdAt: new Date(),
           updatedAt: new Date()

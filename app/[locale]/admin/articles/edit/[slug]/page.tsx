@@ -1,9 +1,11 @@
 'use client'
 
+import { Loader2, RefreshCw } from 'lucide-react'
+import Image from 'next/image'
 import { use, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
-import { getArticleBySlug, updateArticle, deleteArticle } from '@/actions/ai-content'
+import { getArticleBySlug, updateArticle, deleteArticle, generateArticleCoverImage } from '@/actions/ai-content'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,6 +33,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
   const [isSaving, setIsSaving] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
   const [isPublished, setIsPublished] = useState(false)
+  const [isGeneratingCover, setIsGeneratingCover] = useState(false)
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -74,6 +77,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
         title: article.title,
         content: article.content,
         excerpt: article.excerpt,
+        coverImage: article.coverImage,
         publishedAt: isPublished ? new Date() : null
       }
 
@@ -99,6 +103,33 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
       toast.error('删除文章失败')
     } finally {
       setIsDeleting(false)
+    }
+  }
+
+  const handleRegenerateCover = async () => {
+    if (!article || !article.content) {
+      toast.error('需要文章内容才能生成封面图')
+      return
+    }
+
+    setIsGeneratingCover(true)
+    try {
+      const imageUrl = await generateArticleCoverImage(article.content, article.title)
+
+      if (imageUrl) {
+        setArticle({
+          ...article,
+          coverImage: imageUrl
+        })
+        toast.success('封面图已重新生成')
+      } else {
+        toast.error('生成封面图失败')
+      }
+    } catch (error) {
+      console.error('生成封面图时出错:', error)
+      toast.error('生成封面图失败')
+    } finally {
+      setIsGeneratingCover(false)
     }
   }
 
@@ -144,6 +175,51 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
         <div className="mb-4">
           <Label htmlFor="excerpt">摘要</Label>
           <Textarea id="excerpt" value={article.excerpt} onChange={(e) => handleInputChange(e, 'excerpt')} rows={3} />
+        </div>
+
+        <div className="mb-6">
+          <div className="flex items-center justify-between">
+            <Label htmlFor="coverImage">封面图</Label>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleRegenerateCover}
+              disabled={isGeneratingCover}
+              className="flex items-center gap-1"
+            >
+              {isGeneratingCover ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>生成中...</span>
+                </>
+              ) : (
+                <>
+                  <RefreshCw className="h-4 w-4" />
+                  <span>重新生成</span>
+                </>
+              )}
+            </Button>
+          </div>
+          <div className="mt-2 rounded-md border">
+            {article.coverImage ? (
+              <figure className="relative">
+                <Image
+                  src={article.coverImage}
+                  alt={article.title}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-full rounded-md"
+                  style={{ aspectRatio: '16/9', objectFit: 'cover' }}
+                />
+              </figure>
+            ) : (
+              <div className="flex h-48 items-center justify-center rounded-md bg-gray-100 dark:bg-gray-800">
+                <p className="text-sm text-gray-500">无封面图</p>
+              </div>
+            )}
+          </div>
+          <p className="mt-1 text-xs text-gray-500">封面图将显示在文章列表和文章详情页面顶部</p>
         </div>
 
         <div className="mb-6">
