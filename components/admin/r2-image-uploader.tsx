@@ -1,7 +1,6 @@
 'use client'
 
 import { Loader2, Upload } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import { useState, useRef } from 'react'
 import { toast } from 'sonner'
 
@@ -9,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 export function R2ImageUploader() {
-  const t = useTranslations('admin.r2')
   const [isUploading, setIsUploading] = useState(false)
   const [preview, setPreview] = useState<string | null>(null)
   const [uploadedImage, setUploadedImage] = useState<{ url: string; filename: string } | null>(null)
@@ -20,7 +18,7 @@ export function R2ImageUploader() {
     if (!file) return
 
     if (!file.type.startsWith('image/')) {
-      toast.error(t('invalidFileType'))
+      toast.error('文件类型无效，请选择图片文件')
       return
     }
 
@@ -34,7 +32,7 @@ export function R2ImageUploader() {
   const handleUpload = async () => {
     const file = fileInputRef.current?.files?.[0]
     if (!file) {
-      toast.error(t('noFileSelected'))
+      toast.error('请先选择文件')
       return
     }
 
@@ -56,14 +54,10 @@ export function R2ImageUploader() {
       } = await response.json()
 
       if (!response.ok) {
-        throw new Error(result.error || t('uploadFailed'))
+        throw new Error(result.error || '上传失败')
       }
 
-      if (!response.ok) {
-        throw new Error(result.error || t('uploadFailed'))
-      }
-
-      toast.success(t('uploadSuccessful'))
+      toast.success('上传成功')
 
       setUploadedImage({
         url: result.url,
@@ -75,8 +69,8 @@ export function R2ImageUploader() {
         fileInputRef.current.value = ''
       }
     } catch (error) {
-      console.error('Error uploading image:', error)
-      toast.error(t('uploadFailed'))
+      console.error('上传图片时出错:', error)
+      toast.error('上传失败')
     } finally {
       setIsUploading(false)
     }
@@ -85,7 +79,7 @@ export function R2ImageUploader() {
   const handleCopyUrl = () => {
     if (!uploadedImage) return
     navigator.clipboard.writeText(uploadedImage.url)
-    toast.success(t('urlCopied'))
+    toast.success('图片链接已复制到剪贴板')
   }
 
   return (
@@ -97,12 +91,12 @@ export function R2ImageUploader() {
           {isUploading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {t('uploading')}
+              正在上传...
             </>
           ) : (
             <>
               <Upload className="mr-2 h-4 w-4" />
-              {t('uploadImage')}
+              上传图片
             </>
           )}
         </Button>
@@ -110,16 +104,16 @@ export function R2ImageUploader() {
 
       {preview && (
         <div className="mt-4">
-          <p className="mb-2 text-sm font-medium">{t('preview')}</p>
+          <p className="mb-2 text-sm font-medium">预览</p>
           <div className="overflow-hidden rounded-md border">
-            <img src={preview} alt={t('preview')} className="h-auto max-h-[300px] w-auto object-contain" />
+            <img src={preview} alt="预览" className="h-auto max-h-[300px] w-auto object-contain" />
           </div>
         </div>
       )}
 
       {uploadedImage && (
         <div className="mt-4 rounded-md border p-4">
-          <h3 className="mb-2 text-lg font-medium">{t('uploadedImage')}</h3>
+          <h3 className="mb-2 text-lg font-medium">已上传的图片</h3>
           <div className="mb-4 overflow-hidden rounded-md border">
             <img
               src={uploadedImage.url}
@@ -129,14 +123,14 @@ export function R2ImageUploader() {
           </div>
           <div className="space-y-2">
             <p className="text-sm break-all">
-              <strong>{t('filename')}</strong> {uploadedImage.filename}
+              <strong>文件名：</strong> {uploadedImage.filename}
             </p>
             <p className="text-sm break-all">
-              <strong>{t('url')}</strong>
+              <strong>URL：</strong>
               {uploadedImage.url}
             </p>
             <Button onClick={handleCopyUrl} size="sm">
-              {t('copyImageUrl')}
+              复制图片链接
             </Button>
           </div>
         </div>
