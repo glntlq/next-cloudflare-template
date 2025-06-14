@@ -188,12 +188,18 @@ export default function ArticlesPage() {
               articles.map((article) => (
                 <TableRow key={article.id}>
                   <TableCell className="px-6 py-4 whitespace-nowrap">
-                    {article.coverImageUrl && (
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
-                        alt={article.title}
-                        className="h-[54px] w-24 rounded-md object-cover"
-                      />
+                    {article.coverImageUrl ? (
+                      <div className="bg-muted relative h-[54px] w-24 overflow-hidden rounded-md">
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
+                          alt={article.title}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="bg-muted text-muted-foreground flex h-[54px] w-24 items-center justify-center rounded-md text-xs">
+                        无图片
+                      </div>
                     )}
                   </TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap">
