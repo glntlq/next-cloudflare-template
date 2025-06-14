@@ -204,7 +204,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
             {article.coverImage ? (
               <figure className="relative">
                 <Image
-                  src={article.coverImage}
+                  src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
                   alt={article.title}
                   width={0}
                   height={0}
