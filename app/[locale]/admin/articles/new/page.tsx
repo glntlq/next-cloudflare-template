@@ -4,6 +4,7 @@ import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
+import { cloudflareTextToImage } from '@/actions/ai'
 import { generateArticle, saveGeneratedArticle } from '@/actions/ai-content'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -27,6 +28,9 @@ export default function NewArticlePage() {
   const [isSaving, setIsSaving] = useState(false)
   const [publishImmediately, setPublishImmediately] = useState(true)
   const [selectedLocale, setSelectedLocale] = useState('en') // 默认英语
+
+  const [coverImageUrl, setCoverImageUrl] = useState<string | null>(null)
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false)
 
   const handleGenerate = async () => {
     if (!keyword.trim()) {
@@ -55,11 +59,12 @@ export default function NewArticlePage() {
 
     setIsSaving(true)
     try {
-      // 将语言传递给保存函数
+      // 将语言和封面图传递给保存函数
       await saveGeneratedArticle(
         {
           ...generatedArticle,
-          locale: selectedLocale
+          locale: selectedLocale,
+          coverImageUrl: coverImageUrl || undefined
         },
         publishImmediately
       )
@@ -79,6 +84,37 @@ export default function NewArticlePage() {
       ...generatedArticle,
       [field]: e.target.value
     })
+  }
+
+  // 生成封面图的函数
+  const handleGenerateCoverImage = async () => {
+    if (!generatedArticle?.title) {
+      toast.error('需要先生成文章内容')
+      return
+    }
+
+    setIsGeneratingImage(true)
+    try {
+      // 使用文章标题作为提示词生成图片
+      const result = await cloudflareTextToImage({
+        prompt: `${generatedArticle.title} - high quality, professional blog cover image`,
+        ratio: '16:9',
+        style: 'artistic',
+        steps: 8
+      })
+
+      if (result.imageUrl) {
+        setCoverImageUrl(result.imageUrl)
+        toast.success('封面图生成成功')
+      } else {
+        toast.error(result.error || '生成封面图失败')
+      }
+    } catch (error) {
+      console.error('生成封面图时出错:', error)
+      toast.error('生成封面图失败')
+    } finally {
+      setIsGeneratingImage(false)
+    }
   }
 
   return (
@@ -148,6 +184,33 @@ export default function NewArticlePage() {
               onChange={(e) => handleInputChange(e, 'excerpt')}
               rows={3}
             />
+          </div>
+
+          {/* 封面图部分 */}
+          <div className="mb-6">
+            <div className="mb-2 flex items-center justify-between">
+              <Label htmlFor="coverImage">封面图</Label>
+              <Button variant="outline" size="sm" onClick={handleGenerateCoverImage} disabled={isGeneratingImage}>
+                {isGeneratingImage && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {isGeneratingImage ? '正在生成...' : '生成封面图'}
+              </Button>
+            </div>
+
+            {coverImageUrl && (
+              <div className="mt-2 overflow-hidden rounded-md border">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${coverImageUrl}`}
+                  alt="文章封面"
+                  className="aspect-video h-auto w-full object-cover"
+                />
+              </div>
+            )}
+
+            {!coverImageUrl && (
+              <div className="mt-2 rounded-md border border-dashed p-8 text-center text-gray-500">
+                点击"生成封面图"按钮创建文章封面
+              </div>
+            )}
           </div>
 
           <div className="mb-6">

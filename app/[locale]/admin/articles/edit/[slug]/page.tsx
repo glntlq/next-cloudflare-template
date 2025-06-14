@@ -76,7 +76,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
         title: article.title,
         content: article.content,
         excerpt: article.excerpt,
-        coverImage: article.coverImage,
+        coverImageUrl: article.coverImageUrl,
         publishedAt: isPublished ? new Date() : null
       }
 
@@ -118,7 +118,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
       if (imageUrl) {
         setArticle({
           ...article,
-          coverImage: imageUrl
+          coverImageUrl: imageUrl
         })
         toast.success('封面图已重新生成')
       } else {
@@ -178,7 +178,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
 
         <div className="mb-6">
           <div className="flex items-center justify-between">
-            <Label htmlFor="coverImage">封面图</Label>
+            <Label htmlFor="coverImageUrl">封面图</Label>
             <Button
               variant="outline"
               size="sm"
@@ -200,7 +200,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
             </Button>
           </div>
           <div className="mt-2 rounded-md border">
-            {article.coverImage ? (
+            {article.coverImageUrl ? (
               <figure className="relative">
                 <img
                   src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}

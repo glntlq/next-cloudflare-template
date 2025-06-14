@@ -156,13 +156,13 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
           .replace(/\-\-+/g, '-')
       }
 
-      const coverImage = await generateArticleCoverImage(content, extractedTitle)
+      const coverImageUrl = await generateArticleCoverImage(content, extractedTitle)
 
       return {
         title: extractedTitle,
         slug,
         content,
-        coverImage,
+        coverImageUrl,
         excerpt: excerpt || content.substring(0, 140) + '...',
         locale
       }
@@ -267,7 +267,7 @@ export async function saveGeneratedArticle(
     content: string
     excerpt: string
     locale?: string
-    coverImage?: string
+    coverImageUrl?: string
   },
   publishImmediately = true
 ) {
@@ -280,7 +280,7 @@ export async function saveGeneratedArticle(
     excerpt: article.excerpt,
     content: article.content,
     locale: article.locale || 'en',
-    coverImage: article.coverImage,
+    coverImageUrl: article.coverImageUrl,
     publishedAt: publishImmediately ? new Date() : undefined,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -296,7 +296,7 @@ export async function saveBatchArticles(
     content: string
     excerpt: string
     locale?: string
-    coverImage?: string
+    coverImageUrl?: string
     selected?: boolean
   }>,
   publishImmediately = true
@@ -318,7 +318,7 @@ export async function saveBatchArticles(
           excerpt: article.excerpt,
           content: article.content,
           locale: article.locale || 'en',
-          coverImage: article.coverImage,
+          coverImageUrl: article.coverImageUrl,
           publishedAt: publishImmediately ? new Date() : undefined,
           createdAt: new Date(),
           updatedAt: new Date()
