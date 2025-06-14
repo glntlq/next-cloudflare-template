@@ -1,7 +1,6 @@
 'use client'
 
 import { Loader2, RefreshCw } from 'lucide-react'
-import Image from 'next/image'
 import { use, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
@@ -203,12 +202,9 @@ export default function EditArticlePage({ params }: { params: Promise<{ slug: st
           <div className="mt-2 rounded-md border">
             {article.coverImage ? (
               <figure className="relative">
-                <Image
+                <img
                   src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
                   alt={article.title}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
                   className="h-auto w-full rounded-md"
                   style={{ aspectRatio: '16/9', objectFit: 'cover' }}
                 />

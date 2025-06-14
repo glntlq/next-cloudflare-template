@@ -1,20 +1,143 @@
-import { getPaginatedArticles } from '@/actions/ai-content'
-import { BlogPagination } from '@/components/blog/blog-pagination'
+'use client'
+
+import { MoreHorizontalIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
+
+import { deleteArticle, getPaginatedArticles } from '@/actions/ai-content'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious
+} from '@/components/ui/pagination-client'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
 import { formatDate } from '@/lib/utils'
 
-export default async function ArticlesPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const { page } = await searchParams
-  const currentPage = page ? parseInt(page) : 1
-  const pageSize = 10
+export default function ArticlesPage() {
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize] = useState(10)
+  const [articles, setArticles] = useState<any[]>([])
+  const [totalPages, setTotalPages] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isDeleting, setIsDeleting] = useState<string | null>(null)
 
-  const { articles, pagination } = await getPaginatedArticles({
-    page: currentPage,
-    pageSize
-  })
+  const fetchArticles = async () => {
+    setIsLoading(true)
+    try {
+      const result = await getPaginatedArticles({
+        page: currentPage,
+        pageSize
+      })
+      setArticles(result.articles)
+      setTotalPages(result.pagination.totalPages)
+    } catch (error) {
+      console.error('Failed to fetch articles:', error)
+      toast.error('加载文章失败，请重试')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchArticles()
+  }, [currentPage])
+
+  const handleDelete = async (slug: string, id: string) => {
+    if (confirm('确定要删除这篇文章吗？此操作不可撤销。')) {
+      try {
+        setIsDeleting(id)
+        await deleteArticle(slug)
+        toast.success('文章已成功删除')
+
+        getPaginatedArticles({
+          page: currentPage,
+          pageSize
+        }).then((result) => {
+          setArticles(result.articles)
+          setTotalPages(result.pagination.totalPages)
+        })
+      } catch (error) {
+        console.error('删除文章失败:', error)
+        toast.error('删除文章失败，请重试')
+      } finally {
+        setIsDeleting(null)
+      }
+    }
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  const renderPaginationItems = () => {
+    const items = []
+    const maxVisiblePages = 5
+
+    items.push(
+      <PaginationItem key="first">
+        <PaginationLink isActive={currentPage === 1} onClick={() => handlePageChange(1)}>
+          1
+        </PaginationLink>
+      </PaginationItem>
+    )
+
+    // Calculate range of pages to show
+    const startPage = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2))
+    const endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 3)
+
+    // Adjust if we're near the beginning
+    if (startPage > 2) {
+      items.push(
+        <PaginationItem key="ellipsis-start">
+          <span className="flex h-9 w-9 items-center justify-center">
+            <MoreHorizontalIcon className="h-4 w-4" />
+          </span>
+        </PaginationItem>
+      )
+    }
+
+    // Add middle pages
+    for (let i = startPage; i <= endPage; i++) {
+      items.push(
+        <PaginationItem key={i}>
+          <PaginationLink isActive={currentPage === i} onClick={() => handlePageChange(i)}>
+            {i}
+          </PaginationLink>
+        </PaginationItem>
+      )
+    }
+
+    // Add ellipsis if needed
+    if (endPage < totalPages - 1) {
+      items.push(
+        <PaginationItem key="ellipsis-end">
+          <span className="flex h-9 w-9 items-center justify-center">
+            <MoreHorizontalIcon className="h-4 w-4" />
+          </span>
+        </PaginationItem>
+      )
+    }
+
+    // Always show last page if there's more than one page
+    if (totalPages > 1) {
+      items.push(
+        <PaginationItem key="last">
+          <PaginationLink isActive={currentPage === totalPages} onClick={() => handlePageChange(totalPages)}>
+            {totalPages}
+          </PaginationLink>
+        </PaginationItem>
+      )
+    }
+
+    return items
+  }
 
   return (
     <>
@@ -33,40 +156,38 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
       </div>
 
       <div className="border-border bg-card overflow-hidden rounded-lg border shadow">
-        <table className="divide-border min-w-full divide-y">
-          <thead className="bg-muted/50">
-            <tr>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                封面图
-              </th>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                标题
-              </th>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                创建日期
-              </th>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                语言
-              </th>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                状态
-              </th>
-              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                操作
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-border bg-card divide-y">
-            {articles.length === 0 ? (
-              <tr>
-                <td colSpan={6} className="text-muted-foreground px-6 py-4 text-center">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              {['封面图', '标题', '创建日期', '语言', '状态', '操作'].map((header) => (
+                <TableHead
+                  key={header}
+                  className="text-muted-foreground px-6 py-3 text-xs font-medium tracking-wider whitespace-nowrap uppercase"
+                >
+                  {header}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {isLoading ? (
+              <TableRow>
+                <TableCell colSpan={6} className="py-8 text-center">
+                  <div className="flex justify-center">
+                    <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2"></div>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ) : articles.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-muted-foreground px-6 py-4 text-center">
                   暂无文章
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ) : (
               articles.map((article) => (
-                <tr key={article.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                <TableRow key={article.id}>
+                  <TableCell className="px-6 py-4 whitespace-nowrap">
                     {article.coverImageUrl && (
                       <img
                         src={`${process.env.NEXT_PUBLIC_R2_DOMAIN}/${article.coverImageUrl}`}
@@ -74,23 +195,23 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
                         className="h-16 w-24 rounded-md object-cover"
                       />
                     )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  </TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium">{article.title}</div>
                     <div className="text-muted-foreground truncate text-sm">{article.slug}</div>
-                  </td>
-                  <td className="text-muted-foreground px-6 py-4 text-sm whitespace-nowrap">
+                  </TableCell>
+                  <TableCell className="text-muted-foreground px-6 py-4 text-sm whitespace-nowrap">
                     {formatDate(article.createdAt)}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  </TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap">
                     <Badge variant="outline">{locales.find((i) => i.code === article.locale)?.name}</Badge>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  </TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap">
                     <Badge variant={article.publishedAt ? 'success' : 'secondary'}>
                       {article.publishedAt ? '已发布' : '草稿'}
                     </Badge>
-                  </td>
-                  <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                  </TableCell>
+                  <TableCell className="px-6 py-4 text-sm font-medium whitespace-nowrap">
                     <Link
                       href={`/admin/articles/edit/${article.slug}`}
                       className="text-primary hover:text-primary/80 mr-4"
@@ -104,16 +225,37 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
                     >
                       查看
                     </Link>
-                  </td>
-                </tr>
+                    <button
+                      onClick={() => handleDelete(article.slug, article.id)}
+                      disabled={isDeleting === article.id}
+                      className="text-destructive hover:text-destructive/80 font-medium"
+                    >
+                      {isDeleting === article.id ? '删除中...' : '删除'}
+                    </button>
+                  </TableCell>
+                </TableRow>
               ))
             )}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
 
       <div className="mt-6">
-        <BlogPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        {totalPages > 1 && (
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)} />
+              </PaginationItem>
+
+              {renderPaginationItems()}
+
+              <PaginationItem>
+                <PaginationNext onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)} />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        )}
       </div>
     </>
   )
