@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header'
+import NextTopLoader from '@/components/top-loader'
 import { Toaster } from '@/components/ui/sonner'
 import { locales, routing } from '@/i18n/routing'
 
@@ -64,6 +65,7 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale?.code ?? 'en'} dir={currentLocale?.dir || 'ltr'} suppressHydrationWarning>
       <body className="antialiased">
+        <NextTopLoader />
         <NextIntlClientProvider>
           <SessionProvider>
             <Header />
