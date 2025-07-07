@@ -2,7 +2,6 @@
 import type { Config } from 'drizzle-kit'
 
 const { LOCAL_DB_PATH, DATABASE_ID, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID } = process.env
-
 // Use better-sqlite driver for local development
 export default LOCAL_DB_PATH
   ? ({

@@ -1,67 +1,23 @@
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "cloudflare-template",
-    "main": ".open-next/worker.js",
-    "compatibility_date": "2025-04-22",
-    "compatibility_flags": [
-        "nodejs_compat",
-        "global_fetch_strictly_public"
-    ],
-    "observability": {
-        "logs": {
-            "enabled": true
-        }
-    },
-    "assets": {
-        "directory": ".open-next/assets",
-        "binding": "ASSETS"
-    },
-    "d1_databases": [
-        {
-            "binding": "DB",
-            "database_name": "next-template",
-            "database_id": "76508c42-476a-458d-ae33-045e333d8bf4",
-            "migrations_dir": "migrations"
-        }
-    ],
-    "ai": {
-        "binding": "AI"
-    },
-    "r2_buckets": [
-        {
-            "bucket_name": "demo",
-            "binding": "NEXT_INC_CACHE_R2_BUCKET"
-        },
-        {
-            "bucket_name": "static",
-            "binding": "static"
-        }
-    ],
-    "durable_objects": {
-        "bindings": [
-            {
-                "name": "NEXT_CACHE_DO_QUEUE",
-                "class_name": "DOQueueHandler"
-            },
-            {
-                "name": "NEXT_TAG_CACHE_DO_SHARDED",
-                "class_name": "DOShardedTagCache"
-            }
-        ]
-    },
-    "migrations": [
-        {
-            "tag": "v1",
-            "new_sqlite_classes": [
-                "DOQueueHandler",
-                "DOShardedTagCache"
-            ]
-        }
-    ],
-    "services": [
-        {
-            "binding": "WORKER_SELF_REFERENCE",
-            "service": "cloudflare-template"
-        }
-    ]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "next-cloudflare-template",
+  "compatibility_date": "2025-04-22",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "demo",
+      "database_id": "8c8a238f-fd1c-4e3c-9220-b7403a365a20",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "KV",
+  //     "id": "f6b51dc9a6d94577be2bb6e7ae08a47b"
+  //   }
+  // ],
+  "pages_build_output_dir": ".vercel/output/static"
 }
