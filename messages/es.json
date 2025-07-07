@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "Hola",
+    "about": "Ir a la página de información"
+  },
+  "login": {
+    "modal": {
+      "description": "Inicia sesión para continuar tu viaje",
+      "triggerText": "Iniciar sesión"
+    },
+    "form": {
+      "continueWithGoogle": "Continuar con Google",
+      "continueWithGithub": "Continuar con GitHub",
+      "orContinueWith": "O continuar con",
+      "emailPlaceholder": "Ingrese su correo electrónico",
+      "signInWithEmail": "Iniciar sesión con correo electrónico"
+    },
+    "signOut": "Cerrar sesión",
+    "login": "Iniciar sesión"
+  },
+  "footer": {
+    "description": "Empoderar conversaciones con IA. Experimente el futuro de la comunicación con LinkAI.",
+    "contact": {
+      "title": "Contacto",
+      "intro": "Para consultas, por favor contáctenos:",
+      "email": "contacto@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "Enlaces rápidos",
+      "home": "Inicio",
+      "aboutUs": "Acerca de nosotros",
+      "refundPolicy": "Política de reembolso",
+      "subscriptionTerms": "Términos de suscripción"
+    },
+    "copyright": " 2024 Cozyai LLC. Todos los derechos reservados."
+  },
+  "common": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "morePage": "Más páginas",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "submit": "Enviar",
+    "morePages": "Ver más páginas",
+    "language": "Idioma",
+    "selectLanguage": "Seleccione el idioma"
+  },
+  "headers": {
+    "home": "Inicio",
+    "blogs": "Blogs",
+    "navigation": "Navegación del sitio",
+    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "Publicación no encontrada",
+    "postNotFoundDescription": "No se pudo encontrar la entrada de blog que estás buscando.",
+    "publishedAt": "Publicado en {date}"
+  },
+  "blogs": {
+    "pageTitle": "Publicaciones del blog",
+    "metaTitle": "Perspectivas y artículos",
+    "metaDescription": "Explora nuestros últimos artículos sobre análisis de belleza, tecnología de inteligencia artificial y estética facial. Descubre perspectivas expertas, consejos y tendencias en el mundo de la evaluación de belleza impulsada por IA.",
+    "noArticles": "No hay artículos disponibles",
+    "publishedAt": "Publicado en {date}"
+  }
+}

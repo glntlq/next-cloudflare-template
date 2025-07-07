@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "مرحبا",
+    "about": "الانتقال إلى صفحة المعلومات"
+  },
+  "login": {
+    "modal": {
+      "description": "تسجيل الدخول للاستمرار",
+      "triggerText": "تسجيل الدخول"
+    },
+    "form": {
+      "continueWithGoogle": "استمر مع Google",
+      "continueWithGithub": "استمر مع GitHub",
+      "orContinueWith": "أو استمر مع",
+      "emailPlaceholder": "أدخل عنوان البريد الإلكتروني",
+      "signInWithEmail": "تسجيل الدخول عبر البريد الإلكتروني"
+    },
+    "signOut": "تسجيل الخروج",
+    "login": "تسجيل الدخول"
+  },
+  "footer": {
+    "description": "تعزيز المحادثات بالذكاء الاصطناعي. تجربة مستقبل الاتصالات مع LinkAI.",
+    "contact": {
+      "title": "اتصل بنا",
+      "intro": "للاستفسارات، يرجى الاتصال بنا:",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "روابط سريعة",
+      "home": "الصفحة الرئيسية",
+      "aboutUs": "عنّا",
+      "refundPolicy": "سياسة الاسترجاع",
+      "subscriptionTerms": "شروط الاشتراك"
+    },
+    "copyright": " 2024 Cozyai LLC. جميع الحقوق محفوظة."
+  },
+  "common": {
+    "previous": "السابق",
+    "next": "التالي",
+    "morePage": "المزيد من الصفحات",
+    "close": "إغلاق",
+    "loading": "تحميل...",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تحرير",
+    "delete": "حذف",
+    "submit": "إرسال",
+    "morePages": "عرض المزيد من الصفحات",
+    "language": "اللغة",
+    "selectLanguage": "اختر اللغة"
+  },
+  "headers": {
+    "home": "الصفحة الرئيسية",
+    "blogs": "المدونات",
+    "navigation": "تنقل الموقع",
+    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "لم يتم العثور على المنشور",
+    "postNotFoundDescription": "لم يتم العثور على مشاركة مدونة التي تبحث عنها.",
+    "publishedAt": "نُشر في {date}"
+  },
+  "blogs": {
+    "pageTitle": "مشاركات المدونة",
+    "metaTitle": "رؤى ومقالات",
+    "metaDescription": "استكشف أحدث مقالاتنا حول تحليل الجمال، وتكنولوجيا الذكاء الاصطناعي، وجماليات الوجه. اكتشف رؤى الخبراء، والنصائح، والاتجاهات في عالم تقييم الجمال المدعوم بالذكاء الاصطناعي.",
+    "noArticles": "لا تتوفر مقالات",
+    "publishedAt": "نُشر في {date}"
+  }
+}

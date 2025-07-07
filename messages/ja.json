@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "こんにちは",
+    "about": "詳細情報ページへ移動する"
+  },
+  "login": {
+    "modal": {
+      "description": "続行するにはログインしてください",
+      "triggerText": "ログイン"
+    },
+    "form": {
+      "continueWithGoogle": "Googleで続行する",
+      "continueWithGithub": "GitHubで続行する",
+      "orContinueWith": "または続行する",
+      "emailPlaceholder": "メールアドレスを入力してください",
+      "signInWithEmail": "メールアドレスでサインイン"
+    },
+    "signOut": "ログアウト",
+    "login": "ログイン"
+  },
+  "footer": {
+    "description": "AIで会話に力を与える。LinkAIでコミュニケーションの未来を体験してください。",
+    "contact": {
+      "title": "お問い合わせ",
+      "intro": "お問い合わせは以下まで：",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "クイックリンク",
+      "home": "ホーム",
+      "aboutUs": "会社概要",
+      "refundPolicy": "返金ポリシー",
+      "subscriptionTerms": "定期購読規約"
+    },
+    "copyright": " 2024 Cozyai LLC. All rights reserved."
+  },
+  "common": {
+    "previous": "前へ",
+    "next": "次へ",
+    "morePage": "もっと見る",
+    "close": "閉じる",
+    "loading": "読み込み中...",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "submit": "送信",
+    "morePages": "さらにページを見る",
+    "language": "言語",
+    "selectLanguage": "言語を選択"
+  },
+  "headers": {
+    "home": "ホーム",
+    "blogs": "ブログ",
+    "navigation": "サイトのナビゲーション",
+    "navigationDescription": "ウェブサイトの主要セクションにアクセスする"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "投稿が見つかりませんでした",
+    "postNotFoundDescription": "お探しのブログ投稿は見つかりませんでした。",
+    "publishedAt": "{date} に公開"
+  },
+  "blogs": {
+    "pageTitle": "ブログ記事",
+    "metaTitle": "洞察と記事",
+    "metaDescription": "美容分析、AI技術、顔貌分析の最新記事をご覧ください。AIによる美容評価の世界における専門家の洞察、ヒント、トレンドをご紹介します。",
+    "noArticles": "記事がありません",
+    "publishedAt": "{date} に公開"
+  }
+}

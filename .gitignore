@@ -4,8 +4,12 @@
 /node_modules
 
 
+messages/*.d.json.ts
+
 # testing
 /coverage
+
+.open-next
 
 # next.js
 /.next/

@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "안녕하세요",
+    "about": "정보 페이지로 이동"
+  },
+  "login": {
+    "modal": {
+      "description": "계속하려면 로그인하세요",
+      "triggerText": "로그인"
+    },
+    "form": {
+      "continueWithGoogle": "Google로 계속",
+      "continueWithGithub": "GitHub로 계속",
+      "orContinueWith": "또는 계속",
+      "emailPlaceholder": "이메일 주소를 입력하세요",
+      "signInWithEmail": "이메일로 로그인"
+    },
+    "signOut": "로그아웃",
+    "login": "로그인"
+  },
+  "footer": {
+    "description": "AI를 통한 대화 강화. LinkAI와 함께 커뮤니케이션의 미래를 경험하세요.",
+    "contact": {
+      "title": "문의하기",
+      "intro": "문의 사항은 다음으로 연락해 주세요.",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "빠른 링크",
+      "home": "홈",
+      "aboutUs": "회사 소개",
+      "refundPolicy": "환불 정책",
+      "subscriptionTerms": "구독 약관"
+    },
+    "copyright": " 2024 Cozyai LLC. All rights reserved."
+  },
+  "common": {
+    "previous": "이전",
+    "next": "다음",
+    "morePage": "더 많은 페이지",
+    "close": "닫기",
+    "loading": "로딩중...",
+    "cancel": "취소",
+    "save": "저장",
+    "edit": "편집",
+    "delete": "삭제",
+    "submit": "제출",
+    "morePages": "더 많은 페이지 보기",
+    "language": "언어",
+    "selectLanguage": "언어 선택"
+  },
+  "headers": {
+    "home": "홈",
+    "blogs": "블로그",
+    "navigation": "사이트 탐색",
+    "navigationDescription": "웹사이트의 주요 섹션에 액세스"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "게시물을 찾을 수 없습니다",
+    "postNotFoundDescription": "찾으려는 블로그 게시물이 없습니다.",
+    "publishedAt": "{date}에 게시됨"
+  },
+  "blogs": {
+    "pageTitle": "블로그 게시물",
+    "metaTitle": "통찰력 및 기사",
+    "metaDescription": "뷰티 분석, AI 기술 및 얼굴 미학에 관한 최신 기사를 탐색하세요. AI 기반 뷰티 평가 세계의 전문가 통찰력, 팁 및 트렌드를 발견하세요.",
+    "noArticles": "사용 가능한 기사가 없습니다",
+    "publishedAt": "{date}에 게시됨"
+  }
+}

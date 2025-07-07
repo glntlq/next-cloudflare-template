@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "नमस्ते",
+    "about": "जानकारी पृष्ठ पर जाएं"
+  },
+  "login": {
+    "modal": {
+      "description": "जारी रखने के लिए साइन इन करें",
+      "triggerText": "साइन इन करें"
+    },
+    "form": {
+      "continueWithGoogle": "Google के साथ जारी रखें",
+      "continueWithGithub": "GitHub के साथ जारी रखें",
+      "orContinueWith": "या के साथ जारी रखें",
+      "emailPlaceholder": "अपना ईमेल पता दर्ज करें",
+      "signInWithEmail": "ईमेल के साथ साइन इन करें"
+    },
+    "signOut": "लॉग आउट",
+    "login": "लॉगिन करें"
+  },
+  "footer": {
+    "description": "एआई के साथ बातचीत को सशक्त बनाएं। LinkAI के साथ संचार के भविष्य का अनुभव करें।",
+    "contact": {
+      "title": "संपर्क",
+      "intro": "पूछताछ के लिए, कृपया संपर्क करें:",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "त्वरित लिंक",
+      "home": "होम",
+      "aboutUs": "हमारे बारे में",
+      "refundPolicy": "वापसी नीति",
+      "subscriptionTerms": "सदस्यता की शर्तें"
+    },
+    "copyright": " 2024 Cozyai LLC. सर्वाधिकार सुरक्षित।"
+  },
+  "common": {
+    "previous": "पिछला",
+    "next": "अगला",
+    "morePage": "अधिक पृष्ठ",
+    "close": "बंद कर दें",
+    "loading": "लोडिंग...",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "submit": "जमा करें",
+    "morePages": "अधिक पृष्ठ देखें",
+    "language": "भाषा",
+    "selectLanguage": "भाषा चुनें"
+  },
+  "headers": {
+    "home": "होम",
+    "blogs": "ब्लॉग",
+    "navigation": "साइट नेविगेशन",
+    "navigationDescription": "हमारी वेबसाइट के मुख्य अनुभागों तक पहुंचें"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "पोस्ट नहीं मिला",
+    "postNotFoundDescription": "आप जिस ब्लॉग पोस्ट की तलाश कर रहे हैं वह नहीं मिला।",
+    "publishedAt": "{date} को प्रकाशित किया"
+  },
+  "blogs": {
+    "pageTitle": "ब्लॉग पोस्ट",
+    "metaTitle": "अंतर्दृष्टि और लेख",
+    "metaDescription": "सौंदर्य विश्लेषण, आर्टिफ़िशियल इंटेलिजेंस तकनीक और चेहरे की सौंदर्यशास्त्र पर हमारे नवीनतम लेखों का अन्वेषण करें। AI-संचालित सौंदर्य मूल्यांकन की दुनिया में विशेषज्ञ अंतर्दृष्टि, सुझाव और रुझानों की खोज करें।",
+    "noArticles": "कोई लेख उपलब्ध नहीं",
+    "publishedAt": "{date} को प्रकाशित किया गया"
+  }
+}

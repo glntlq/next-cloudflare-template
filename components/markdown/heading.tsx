@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from '@/i18n/navigation'
+
 import type { JSX } from 'react'
 
 interface HeadingProps {
@@ -23,9 +25,9 @@ export default function Heading({ level, children }: HeadingProps) {
 
   return (
     <Tag id={slug}>
-      <a href={`#${slug}`} className="no-underline">
+      <Link href={`#${slug}`} className="no-underline">
         {children}
-      </a>
+      </Link>
     </Tag>
   )
 }

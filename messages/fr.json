@@ -1,0 +1,78 @@
+{
+  "HomePage": {
+    "title": "Bonjour",
+    "about": "Aller à la page d'informations"
+  },
+  "login": {
+    "modal": {
+      "description": "Connectez-vous pour continuer votre parcours",
+      "triggerText": "Se connecter"
+    },
+    "form": {
+      "continueWithGoogle": "Continuer avec Google",
+      "continueWithGithub": "Continuer avec GitHub",
+      "orContinueWith": "Ou continuer avec",
+      "emailPlaceholder": "Entrer votre adresse e-mail",
+      "signInWithEmail": "Se connecter avec l'e-mail"
+    },
+    "signOut": "Déconnexion",
+    "login": "Se connecter"
+  },
+  "footer": {
+    "description": "Donner du pouvoir aux conversations avec l'IA. Expériencez le futur de la communication avec LinkAI.",
+    "contact": {
+      "title": "Contact",
+      "intro": "Pour les demandes, veuillez contacter :",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "Liens rapides",
+      "home": "Accueil",
+      "aboutUs": "À propos de nous",
+      "refundPolicy": "Politique de remboursement",
+      "subscriptionTerms": "Conditions d'abonnement"
+    },
+    "copyright": " 2024 Cozyai LLC. Tous droits réservés."
+  },
+  "common": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "morePage": "Plus de pages",
+    "close": "Fermer",
+    "loading": "Chargement...",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "submit": "Soumettre",
+    "morePages": "Voir plus de pages",
+    "language": "Langue",
+    "selectLanguage": "Sélectionner une langue"
+  },
+  "headers": {
+    "home": "Accueil",
+    "blogs": "Blogs",
+    "navigation": "Navigation du site",
+    "navigationDescription": "Accédez aux principales sections de notre site Web"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "Publication non trouvée",
+    "postNotFoundDescription": "Le billet de blog que vous recherchez n'a pas été trouvé.",
+    "publishedAt": "Publié le {date}"
+  },
+  "blogs": {
+    "pageTitle": "Articles de blog",
+    "metaTitle": "Perspectives et articles",
+    "metaDescription": "Explorez nos derniers articles sur l'analyse de la beauté, la technologie de l'intelligence artificielle et l'esthétique faciale. Découvrez les informations d'experts, les conseils et les tendances dans le monde de l'évaluation de la beauté alimentée par l'IA.",
+    "noArticles": "Aucun article disponible",
+    "publishedAt": "Publié le {date}"
+  }
+}

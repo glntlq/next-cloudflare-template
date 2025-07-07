@@ -1,0 +1,78 @@
+{
+  "common": {
+    "previous": "上一页",
+    "next": "下一页",
+    "morePage": "更多页面",
+    "close": "关闭",
+    "loading": "正在加载...",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "submit": "提交",
+    "morePages": "查看更多页面",
+    "language": "语言",
+    "selectLanguage": "选择语言"
+  },
+  "HomePage": {
+    "title": "你好",
+    "about": "前往关于页面"
+  },
+  "login": {
+    "modal": {
+      "description": "继续您的旅程",
+      "triggerText": "登录"
+    },
+    "form": {
+      "continueWithGoogle": "使用 Google 继续",
+      "continueWithGithub": "使用 GitHub 继续",
+      "orContinueWith": "或继续使用",
+      "emailPlaceholder": "输入您的电子邮件",
+      "signInWithEmail": "使用电子邮件登录"
+    },
+    "signOut": "退出登录",
+    "login": "登录"
+  },
+  "footer": {
+    "description": "通过人工智能赋予对话力量。体验与LinkAI沟通的未来。",
+    "contact": {
+      "title": "联系",
+      "intro": "如需查询，请联系：",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "快速链接",
+      "home": "首页",
+      "aboutUs": "关于我们",
+      "refundPolicy": "退款政策",
+      "subscriptionTerms": "订阅条款"
+    },
+    "copyright": " 2024 Cozyai LLC. 版权所有。"
+  },
+  "headers": {
+    "home": "首页",
+    "blogs": "博客",
+    "navigation": "站点导航",
+    "navigationDescription": "访问我们网站的主要部分"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "blog": {
+    "postNotFound": "找不到文章",
+    "postNotFoundDescription": "您寻找的博客文章不存在。",
+    "publishedAt": "在 {date} 发布"
+  },
+  "blogs": {
+    "pageTitle": "博客文章",
+    "metaTitle": "洞察与文章",
+    "metaDescription": "探索我们关于美容分析、人工智能技术和面部美学的最新文章。发现专家见解、技巧和人工智能驱动的美容评估世界中的趋势。",
+    "noArticles": "没有可用的文章",
+    "publishedAt": "发布于 {date}"
+  }
+}
