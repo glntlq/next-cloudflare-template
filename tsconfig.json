@@ -9,7 +9,6 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "allowArbitraryExtensions": true,
     "resolveJsonModule": true,
     "allowJs": true,
     "strict": true,
