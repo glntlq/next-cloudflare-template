@@ -9,7 +9,7 @@ export default async function Home() {
       {/* Hero Section */}
       <section className="mb-16 flex flex-col items-center text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-          Next-Generation AI Image Technology v1.0.0
+          Next-Generation AI Image Technology v1.0.1
         </h1>
         <p className="text-muted-foreground mb-8 max-w-3xl text-xl md:text-2xl">
           Discover how artificial intelligence is revolutionizing image creation, recognition, and processing in today's
