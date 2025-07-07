@@ -42,7 +42,4 @@ next-env.d.ts
 
 .idea
 
-
-# specstory
-.specstory/
-
+.specstory
